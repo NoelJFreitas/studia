@@ -1,5 +1,4 @@
 import { createTheme } from "@shopify/restyle";
-import { ViewStyle } from "react-native/types";
 
 import { colors } from "./colors";
 
