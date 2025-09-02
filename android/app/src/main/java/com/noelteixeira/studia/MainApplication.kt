@@ -1,4 +1,4 @@
-package com.studia
+package com.noelteixeira.studia
 
 import android.app.Application
 import android.content.res.Configuration

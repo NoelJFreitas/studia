@@ -1,4 +1,4 @@
-package com.studia
+package com.noelteixeira.studia
 
 import android.os.Build
 import android.os.Bundle

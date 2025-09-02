@@ -2,6 +2,13 @@
   "expo": {
     "name": "studia",
     "slug": "studia",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "icon": "./src/assets/expo/icon.png",
+    "android": {
+      "package": "com.noelteixeira.studia"
+    },
+    "ios": {
+      "bundleIdentifier": "com.noelteixeira.studia"
+    }
   }
 }
