@@ -21,8 +21,8 @@ const lightTheme = {
   buttonPrimary: palette.almostBlack,
   buttonTextPrimary: palette.offWhite,
 
-  title: palette.jetBlack,
-  subtitle: palette.darkSlate,
+  primaryTitle: palette.jetBlack,
+  primaryText: palette.darkSlate,
 };
 
 export const colors = { palette, lightTheme };

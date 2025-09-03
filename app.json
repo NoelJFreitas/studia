@@ -4,11 +4,26 @@
     "slug": "studia",
     "version": "1.0.0",
     "icon": "./src/assets/expo/icon.png",
+    "splash": "./src/assets/expo/splash.png",
     "android": {
       "package": "com.noelteixeira.studia"
     },
     "ios": {
       "bundleIdentifier": "com.noelteixeira.studia"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./src/assets/fonts/Poppins-Black.ttf",
+            "./src/assets/fonts/Poppins-Bold.ttf",
+            "./src/assets/fonts/Poppins-Light.ttf",
+            "./src/assets/fonts/Poppins-Medium.ttf",
+            "./src/assets/fonts/Poppins-Regular.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }
