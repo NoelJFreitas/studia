@@ -1,11 +1,11 @@
-import { Screen } from "@components";
+import { Screen, Button } from "@components";
 
 import Animated, {
   useAnimatedScrollHandler,
   useSharedValue,
 } from "react-native-reanimated";
 import { pages } from "./onboardingData";
-import { Button, ViewStyle } from "react-native";
+import { ViewStyle } from "react-native";
 import { OnboardingImage } from "./components/OnboardImage";
 import { Pagination } from "./components/Pagination";
 import { OnboardingText } from "./components/OnboardingText";
@@ -32,7 +32,7 @@ export function OnboardingScreen() {
   }
 
   return (
-    <Screen justifyContent="center" noPaddingHorizontal>
+    <Screen justifyContent="center" noPaddingHorizontal alignItems="center">
       <Animated.FlatList
         data={pages}
         style={$list}
@@ -64,7 +64,11 @@ export function OnboardingScreen() {
           <OnboardingText title={item.title} description={item.description} />
         )}
       />
-      <Button title="passar aqui" onPress={goToNextPage} />
+      <Button
+        marginTop="xl"
+        title={pages[currentIndex].buttonTitle}
+        onPress={goToNextPage}
+      />
     </Screen>
   );
 }

@@ -21,7 +21,7 @@ const lightTheme = {
   background: palette.offWhite,
 
   buttonPrimary: palette.almostBlack,
-  buttonTextPrimary: palette.offWhite,
+  buttonTextPrimary: palette.pureWhite,
 
   primaryTitle: palette.jetBlack,
   primaryText: palette.darkSlate,
