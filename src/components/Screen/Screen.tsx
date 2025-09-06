@@ -7,9 +7,16 @@ import { ScrollViewContainer, ViewContainer } from "./components";
 interface ScreenProps extends BoxProps {
   children: React.ReactNode;
   scrollable?: boolean;
+  noPaddingHorizontal?: boolean;
 }
 
-export function Screen({ children, style, scrollable, ...props }: ScreenProps) {
+export function Screen({
+  children,
+  style,
+  scrollable,
+  noPaddingHorizontal,
+  ...props
+}: ScreenProps) {
   const { top, bottom } = useSafeAreaInsets();
 
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
@@ -17,7 +24,7 @@ export function Screen({ children, style, scrollable, ...props }: ScreenProps) {
     <KeyboardAvoidingView style={{ flex: 1 }}>
       <Container backgroundColor="background">
         <Box
-          paddingHorizontal="md"
+          paddingHorizontal={!noPaddingHorizontal ? "md" : undefined}
           flex={1}
           style={[{ paddingTop: top, paddingBottom: bottom }, style]}
           {...props}
