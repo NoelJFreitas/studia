@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Screen, Text } from "@components";
+import { Icon, Screen, Text } from "@components";
 import { theme } from "@theme";
 import { ThemeProvider } from "@shopify/restyle";
 import { useFonts } from "expo-font";
 import { APP_FONTS } from "src/assets/fonts";
+import { SimpleLogo } from "@brand";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -25,6 +26,8 @@ export default function App() {
             Anote suas ideias de forma rápida e simples. Registre tudo, em
             qualquer hora e lugar.
           </Text>
+          <Icon name="microphone" />
+          <SimpleLogo />
           <StatusBar style="auto" />
         </Screen>
       </ThemeProvider>
