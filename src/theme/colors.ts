@@ -18,6 +18,8 @@ const lightTheme = {
   primary: palette.vibrantPurple,
   primaryContrast: palette.offWhite,
 
+  background: palette.offWhite,
+
   buttonPrimary: palette.almostBlack,
   buttonTextPrimary: palette.offWhite,
 
