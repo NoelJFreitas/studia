@@ -1,46 +1,18 @@
 import { Box } from "@components";
 import { Image, ImageStyle } from "expo-image";
 import { Dimensions } from "react-native";
-import Animated, {
-  useAnimatedStyle,
-  interpolate,
-  SharedValue,
-} from "react-native-reanimated";
+
 import { OnboardingPageItem } from "../onboardingData";
 
 const WIDTH = Dimensions.get("screen").width;
 
-type Props = Pick<OnboardingPageItem, "image"> & {
-  index: number;
-  scrollX: SharedValue<number>;
-};
+type Props = Pick<OnboardingPageItem, "image">;
 
-const AnimatedBox = Animated.createAnimatedComponent(Box);
-
-export function OnboardingImage({ image, index, scrollX }: Props) {
-  const animatedStyle = useAnimatedStyle(() => {
-    const position = scrollX.value;
-
-    const opacity = interpolate(
-      position,
-      [(index - 0.6) * WIDTH, index * WIDTH, (index + 0.6) * WIDTH],
-      [0, 1, 0],
-    );
-
-    return {
-      opacity,
-    };
-  });
-
+export function OnboardingImage({ image }: Props) {
   return (
-    <AnimatedBox
-      justifyContent="center"
-      alignItems="center"
-      width={WIDTH}
-      style={animatedStyle}
-    >
+    <Box justifyContent="center" alignItems="center" width={WIDTH}>
       <Image source={image} style={$image} />
-    </AnimatedBox>
+    </Box>
   );
 }
 

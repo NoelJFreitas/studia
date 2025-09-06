@@ -1,23 +1,16 @@
 import { Screen } from "@components";
 
 import Animated, {
-  CurvedTransition,
-  FadeInRight,
-  FadingTransition,
-  LinearTransition,
-  SequencedTransition,
   useAnimatedScrollHandler,
   useSharedValue,
-  withTiming,
 } from "react-native-reanimated";
 import { pages } from "./onboardingData";
-import { Button, Dimensions, ViewStyle } from "react-native";
+import { Button, ViewStyle } from "react-native";
 import { OnboardingImage } from "./components/OnboardImage";
 import { Pagination } from "./components/Pagination";
 import { OnboardingText } from "./components/OnboardingText";
 import { useRef, useState } from "react";
 
-const WIDTH = Dimensions.get("screen").width;
 export function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useSharedValue(0);
@@ -33,52 +26,42 @@ export function OnboardingScreen() {
     if (currentIndex < pages.length - 1) {
       const nextIndex = currentIndex + 1;
       setCurrentIndex(nextIndex);
-
       imageListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
-      textListRef.current?.scrollToIndex({ index: nextIndex, animated: false });
+      textListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
     }
   }
 
   return (
     <Screen justifyContent="center" noPaddingHorizontal>
       <Animated.FlatList
+        data={pages}
+        style={$list}
+        ref={imageListRef}
+        onScroll={scrollHandler}
         pagingEnabled
         horizontal
         scrollEnabled={false}
-        style={$list}
         showsHorizontalScrollIndicator={false}
-        data={pages}
-        entering={FadeInRight}
-        ref={imageListRef}
-        onScroll={scrollHandler}
-        renderItem={({ item, index }) => (
-          <OnboardingImage image={item.image} scrollX={scrollX} index={index} />
-        )}
+        renderItem={({ item }) => <OnboardingImage image={item.image} />}
       />
       <Pagination
-        pages={3}
-        currentIndex={1}
+        pages={pages.length}
+        currentIndex={currentIndex}
         alignSelf="center"
         marginTop="xxxl"
         marginBottom="xl"
       />
       <Animated.FlatList
+        ref={textListRef}
+        style={$list}
+        data={pages}
+        scrollEnabled={false}
         pagingEnabled
         horizontal
-        scrollEnabled={false}
-        style={$list}
-        showsHorizontalScrollIndicator={false}
-        data={pages}
         onScroll={scrollHandler}
-        ref={textListRef}
-        itemLayoutAnimation={SequencedTransition}
-        renderItem={({ item, index }) => (
-          <OnboardingText
-            title={item.title}
-            description={item.description}
-            scrollX={scrollX}
-            index={index}
-          />
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <OnboardingText title={item.title} description={item.description} />
         )}
       />
       <Button title="passar aqui" onPress={goToNextPage} />
