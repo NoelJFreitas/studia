@@ -3,3 +3,5 @@ export * from "./Screen/Screen";
 export * from "./Text/Text";
 export * from "./Icon/Icon";
 export * from "./Button/Button";
+export * from "./TextInput/TextInput";
+export * from "./PasswordInput/PasswordInput";

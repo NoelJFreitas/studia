@@ -5,6 +5,8 @@ import { useAppTheme } from "@hooks";
 import { ThemeColors } from "@theme";
 
 import { MicrophoneIcon } from "src/assets/icons/MicrophoneIcon";
+import { EyeOnIcon } from "src/assets/icons/EyeOnIcon";
+import { EyeOffIcon } from "src/assets/icons/EyeOffIcon";
 
 export interface IconBase {
   size?: number;
@@ -19,7 +21,7 @@ export interface IconProps {
   onPress?: () => void;
 }
 
-export function Icon({ name, color = "primary", size, onPress }: IconProps) {
+export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
   const { colors } = useAppTheme();
   const SVGIcon = iconRegistry[name];
 
@@ -41,6 +43,8 @@ export function Icon({ name, color = "primary", size, onPress }: IconProps) {
 
 const iconRegistry = {
   microphone: MicrophoneIcon,
+  eyeOn: EyeOnIcon,
+  eyeOff: EyeOffIcon,
 };
 
 type IconType = typeof iconRegistry;

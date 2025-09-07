@@ -11,6 +11,7 @@ export const palette = {
   coolGray: "#B8BBBE",
   darkSlate: "#282B2E",
   lightGray: "#E2E2E2",
+  lightSilver: "#F5F5F5",
 };
 
 const lightTheme = {

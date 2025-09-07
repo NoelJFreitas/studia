@@ -1,3 +1,4 @@
+import { $shadowProps } from "@theme";
 import { PressableBox, PressableBoxProps } from "../Box/Box";
 import { Text } from "../Text/Text";
 
@@ -14,6 +15,7 @@ export function Button({ title, ...props }: Props) {
       justifyContent="center"
       alignItems="center"
       borderRadius="xl"
+      style={$shadowProps}
       {...props}
     >
       <Text preset="headingSmall" color="buttonTextPrimary">

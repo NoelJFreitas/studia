@@ -24,13 +24,18 @@ export function Text({
   preset = "paragraphMedium",
   children,
   color = "primaryText",
+  style,
   ...props
 }: TextProps) {
   return (
     <RSText
       {...props}
       color={color}
-      style={[fontSizes[preset], { fontFamily: getFontFamily(fontWeight) }]}
+      style={[
+        style,
+        fontSizes[preset],
+        { fontFamily: getFontFamily(fontWeight) },
+      ]}
     >
       {children}
     </RSText>

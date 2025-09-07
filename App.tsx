@@ -8,7 +8,7 @@ import { ThemeProvider } from "@shopify/restyle";
 import { useFonts } from "expo-font";
 import { APP_FONTS } from "src/assets/fonts";
 
-import { OnboardingScreen } from "@screens";
+import { LoginScreen, OnboardingScreen } from "@screens";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        <OnboardingScreen />
+        <LoginScreen />
       </ThemeProvider>
     </SafeAreaProvider>
   );
