@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { LoginScreen } from "@screens";
-import { View } from "react-native";
+
+import { CreateAccountScreen } from "src/screens/authentication/CreateAccountScreen/CreateAccountScreen";
 
 export type AuthStackParamList = {
   Login: undefined;
@@ -17,11 +18,7 @@ export function AuthStack() {
       screenOptions={{ headerShown: false }}
     >
       <Screen name="Login" component={LoginScreen} />
-      <Screen name="CreateAccount" component={CreateAccount} />
+      <Screen name="CreateAccount" component={CreateAccountScreen} />
     </Navigator>
   );
 }
-
-const CreateAccount = () => {
-  return <View />;
-};

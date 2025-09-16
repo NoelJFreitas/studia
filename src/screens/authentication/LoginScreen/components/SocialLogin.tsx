@@ -35,6 +35,7 @@ export function SocialLogin({ type }: Props) {
       height={40}
       justifyContent="center"
       alignItems="center"
+      borderRadius="xs"
       flexDirection="row"
     >
       <Image

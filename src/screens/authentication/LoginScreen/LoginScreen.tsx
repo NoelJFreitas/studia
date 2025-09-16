@@ -8,8 +8,13 @@ import {
   TextInput,
 } from "@components";
 import { SocialLogin } from "./components/SocialLogin";
+import { AuthScreenProps } from "@routes";
 
-export function LoginScreen() {
+export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
+  const handleNavigateToCreateAccount = () => {
+    navigation.navigate("CreateAccount");
+  };
+
   return (
     <Screen justifyContent="center">
       <SimpleLogo alignSelf="center" />
@@ -38,7 +43,12 @@ export function LoginScreen() {
         <SocialLogin type="google" />
         <SocialLogin type="facebook" />
       </Box>
-      <Text textAlign="center" fontWeight="medium" color="charcoalGray">
+      <Text
+        textAlign="center"
+        fontWeight="medium"
+        color="charcoalGray"
+        onPress={handleNavigateToCreateAccount}
+      >
         Não tem uma conta?{" "}
         <Text fontWeight="medium" color="primary">
           Criar agora
