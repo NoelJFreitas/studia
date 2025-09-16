@@ -10,7 +10,8 @@ type TextVariants =
   | "headingMedium"
   | "headingSmall"
   | "paragraphMedium"
-  | "paragraphCaption";
+  | "paragraphCaption"
+  | "paragraphCaptionSmall";
 
 type FontWeight = "bold" | "regular" | "light" | "medium" | "black";
 
@@ -49,6 +50,7 @@ export const fontSizes: Record<TextVariants, TextStyle> = {
 
   paragraphMedium: { fontSize: 14 },
   paragraphCaption: { fontSize: 12 },
+  paragraphCaptionSmall: { fontSize: 10 },
 };
 
 function getFontFamily(fontWeight?: FontWeight) {

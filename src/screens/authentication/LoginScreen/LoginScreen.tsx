@@ -1,18 +1,32 @@
 import { SimpleLogo } from "@brand";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Box,
   Button,
-  PasswordInput,
+  FormPasswordInput,
+  FormTextInput,
   Screen,
   Text,
-  TextInput,
 } from "@components";
 import { SocialLogin } from "./components/SocialLogin";
 import { AuthScreenProps } from "@routes";
+import { useForm } from "react-hook-form";
+import { defaultValues, loginSchema, LoginSchema } from "./schema";
 
 export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
+  const { control, formState, handleSubmit } = useForm<LoginSchema>({
+    resolver: zodResolver(loginSchema),
+    defaultValues,
+    mode: "onChange",
+  });
+
   const handleNavigateToCreateAccount = () => {
     navigation.navigate("CreateAccount");
+  };
+
+  const onSubmit = () => {
+    //implementes
+    console.log("entrar");
   };
 
   return (
@@ -26,16 +40,33 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
       >
         Entrar
       </Text>
-      <TextInput
+      <FormTextInput
+        control={control}
+        name="email"
         label="Email"
+        autoCapitalize="none"
+        keyboardType="email-address"
         placeholder="Digite o seu e-mail"
+        showErrorMessage={false}
         boxProps={{ mb: "xl" }}
       />
-      <PasswordInput label="Senha" placeholder="digete a senha" />
+      <FormPasswordInput
+        showErrorMessage={false}
+        control={control}
+        name="password"
+        label="Senha"
+        placeholder="digete a senha"
+      />
       <Text textAlign="right" color="charcoalGray" mt="sm">
         Esqueceu sua senha?
       </Text>
-      <Button alignSelf="center" title="Entrar" marginTop="xl" />
+      <Button
+        disabled={!formState.isValid}
+        alignSelf="center"
+        title="Entrar"
+        onPress={handleSubmit(onSubmit)}
+        marginTop="xl"
+      />
       <Text marginVertical="xl" textAlign="center" color="charcoalGray">
         Ou entre com:
       </Text>

@@ -13,6 +13,7 @@ export const palette = {
   lightGray: "#E2E2E2",
   lightSilver: "#F5F5F5",
   base: "#fcfcfc",
+  red: "#FF0000",
 };
 
 const lightTheme = {
@@ -27,6 +28,8 @@ const lightTheme = {
 
   primaryTitle: palette.jetBlack,
   primaryText: palette.darkSlate,
+
+  error: palette.red,
 };
 
 export const colors = { palette, lightTheme };

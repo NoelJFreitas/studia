@@ -5,3 +5,5 @@ export * from "./Icon/Icon";
 export * from "./Button/Button";
 export * from "./TextInput/TextInput";
 export * from "./PasswordInput/PasswordInput";
+export * from "./FormTextInput/FormTextInput";
+export * from "./FormPasswordInput/FormPasswordInput";

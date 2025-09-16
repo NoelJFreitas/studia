@@ -16,19 +16,23 @@ export interface TextInputProps extends RNTextInputProps {
   label: string;
   RightComponent?: React.ReactNode;
   boxProps?: BoxProps;
+  errorMessage?: string;
+  showErrorMessage?: boolean;
 }
 
 export function TextInput({
   boxProps,
   label,
   RightComponent,
+  errorMessage,
+  showErrorMessage = true,
   ...props
 }: TextInputProps) {
   const inputRef = useRef<RNTextInput>(null);
   const focusInput = () => inputRef.current?.focus();
 
   return (
-    <PressableBox rowGap="xs" onPress={focusInput} {...boxProps}>
+    <PressableBox onPress={focusInput} {...boxProps}>
       <Box flexDirection="row">
         <Box flex={1} rowGap="xs">
           <Text
@@ -49,7 +53,13 @@ export function TextInput({
           {RightComponent}
         </Box>
       </Box>
-      <Box borderBottomWidth={1} borderColor="lightGray" />
+
+      <Box borderBottomWidth={1} mt="xs" borderColor="lightGray" />
+      {errorMessage && showErrorMessage && (
+        <Text preset="paragraphCaptionSmall" color="error">
+          {errorMessage}
+        </Text>
+      )}
     </PressableBox>
   );
 }
