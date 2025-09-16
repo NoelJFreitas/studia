@@ -1,6 +1,6 @@
 import { ThemeColors } from "@theme";
 import React from "react";
-import { ScrollView, View } from "react-native";
+import { Box, ScrollBox } from "src/components/Box/Box";
 
 interface Props {
   children: React.ReactNode;
@@ -8,15 +8,20 @@ interface Props {
 }
 export function ScrollViewContainer({ children, backgroundColor }: Props) {
   return (
-    <ScrollView
+    <ScrollBox
       keyboardShouldPersistTaps="handled"
-      style={{ backgroundColor, flex: 1 }}
+      backgroundColor={backgroundColor}
+      style={{ flex: 1 }}
     >
       {children}
-    </ScrollView>
+    </ScrollBox>
   );
 }
 
 export function ViewContainer({ children, backgroundColor }: Props) {
-  return <View style={{ backgroundColor, flex: 1 }}>{children}</View>;
+  return (
+    <Box backgroundColor={backgroundColor} style={{ flex: 1 }}>
+      {children}
+    </Box>
+  );
 }

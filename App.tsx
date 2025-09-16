@@ -8,7 +8,8 @@ import { ThemeProvider } from "@shopify/restyle";
 import { useFonts } from "expo-font";
 import { APP_FONTS } from "src/assets/fonts";
 
-import { LoginScreen, OnboardingScreen } from "@screens";
+import { NavigationContainer } from "@react-navigation/native";
+import { Router } from "@routes";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -18,10 +19,13 @@ export default function App() {
   }, [fontsLoaded, error]);
 
   if (!fontsLoaded && !error) return null;
+
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        <LoginScreen />
+        <NavigationContainer>
+          <Router />
+        </NavigationContainer>
       </ThemeProvider>
     </SafeAreaProvider>
   );

@@ -10,8 +10,11 @@ import { OnboardingImage } from "./components/OnboardImage";
 import { Pagination } from "./components/Pagination";
 import { OnboardingText } from "./components/OnboardingText";
 import { useRef, useState } from "react";
+import { OnboardingScreenProps } from "@routes";
 
-export function OnboardingScreen() {
+export function OnboardingScreen({
+  navigation,
+}: OnboardingScreenProps<"OnboardingScreen">) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollX = useSharedValue(0);
 
@@ -28,6 +31,8 @@ export function OnboardingScreen() {
       setCurrentIndex(nextIndex);
       imageListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
       textListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
+    } else {
+      navigation.replace("Auth", { screen: "Login" });
     }
   }
 

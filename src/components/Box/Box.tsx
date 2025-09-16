@@ -3,6 +3,8 @@ import {
   TouchableOpacityProps as RNTouchableOpacityProps,
   PressableProps,
   Pressable,
+  ScrollViewProps,
+  ScrollView,
 } from "react-native";
 
 import {
@@ -45,4 +47,10 @@ export type PressableBoxProps = PressableProps & RestyleTypes;
 export const PressableBox = createRestyleComponent<PressableBoxProps, Theme>(
   [backgroundColor, spacing, spacingShorthand, layout, border],
   Pressable,
+);
+
+export type ScrollBoxProps = ScrollViewProps & RestyleTypes;
+export const ScrollBox = createRestyleComponent<ScrollBoxProps, Theme>(
+  [backgroundColor, spacing, spacingShorthand, layout, border],
+  ScrollView,
 );

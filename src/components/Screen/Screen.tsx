@@ -25,8 +25,8 @@ export function Screen({
       <Container backgroundColor="background">
         <Box
           paddingHorizontal={!noPaddingHorizontal ? "md" : undefined}
-          flex={1}
           style={[{ paddingTop: top, paddingBottom: bottom }, style]}
+          flex={1}
           {...props}
         >
           {children}
