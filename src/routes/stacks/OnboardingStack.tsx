@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { OnboardingScreen, SplashScreen } from "@screens";
+import { OnboardingScreen, SplashScreen } from "@/screens";
 
 export type OnboardingStackParamList = {
   SplashScreen: undefined;

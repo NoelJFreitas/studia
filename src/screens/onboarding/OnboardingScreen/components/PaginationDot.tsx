@@ -1,5 +1,5 @@
-import { Box } from "@components";
-import { useAppTheme } from "@hooks";
+import { Box } from "@/components";
+import { useAppTheme } from "@/hooks";
 import { useEffect } from "react";
 import Animated, {
   interpolateColor,

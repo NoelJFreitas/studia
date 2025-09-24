@@ -1,4 +1,4 @@
-import { ThemeColors } from "@theme";
+import { ThemeColors } from "@/theme";
 import React from "react";
 import { Box, ScrollBox } from "src/components/Box/Box";
 

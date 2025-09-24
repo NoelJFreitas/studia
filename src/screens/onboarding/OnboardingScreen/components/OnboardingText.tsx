@@ -1,4 +1,4 @@
-import { Box, Text } from "@components";
+import { Box, Text } from "@/components";
 import { OnboardingPageItem } from "../onboardingData";
 import { Dimensions } from "react-native";
 

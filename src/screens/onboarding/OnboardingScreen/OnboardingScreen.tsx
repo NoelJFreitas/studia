@@ -1,4 +1,4 @@
-import { Screen, Button } from "@components";
+import { Screen, Button } from "@/components";
 
 import Animated, {
   useAnimatedScrollHandler,
@@ -10,7 +10,7 @@ import { OnboardingImage } from "./components/OnboardImage";
 import { Pagination } from "./components/Pagination";
 import { OnboardingText } from "./components/OnboardingText";
 import { useRef, useState } from "react";
-import { OnboardingScreenProps } from "@routes";
+import { OnboardingScreenProps } from "@/routes";
 
 export function OnboardingScreen({
   navigation,

@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@components";
+import { Box, BoxProps } from "@/components";
 import React from "react";
 
 import { Svg, Path, Rect, Line } from "react-native-svg";

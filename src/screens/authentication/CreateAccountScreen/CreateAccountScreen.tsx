@@ -1,6 +1,6 @@
-import { SimpleLogo } from "@brand";
-import { Button, PasswordInput, Screen, Text, TextInput } from "@components";
-import { AuthScreenProps } from "@routes";
+import { SimpleLogo } from "@/brand";
+import { Button, PasswordInput, Screen, Text, TextInput } from "@/components";
+import { AuthScreenProps } from "@/routes";
 
 export function CreateAccountScreen({
   navigation,

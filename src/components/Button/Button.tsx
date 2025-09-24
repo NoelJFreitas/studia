@@ -1,4 +1,4 @@
-import { $shadowProps } from "@theme";
+import { $shadowProps } from "@/theme";
 import { PressableBox, PressableBoxProps } from "../Box/Box";
 import { Text } from "../Text/Text";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";

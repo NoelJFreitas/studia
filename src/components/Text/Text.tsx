@@ -1,5 +1,5 @@
 import { createText } from "@shopify/restyle";
-import { Theme } from "@theme";
+import { Theme } from "@/theme";
 import { TextStyle } from "react-native";
 import { APP_FONT_FAMILY } from "src/assets/fonts";
 

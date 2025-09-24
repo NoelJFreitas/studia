@@ -1,8 +1,8 @@
 import React from "react";
 import { Pressable } from "react-native";
 
-import { useAppTheme } from "@hooks";
-import { ThemeColors } from "@theme";
+import { useAppTheme } from "@/hooks";
+import { ThemeColors } from "@/theme";
 
 import { MicrophoneIcon } from "src/assets/icons/MicrophoneIcon";
 import { EyeOnIcon } from "src/assets/icons/EyeOnIcon";

@@ -1,4 +1,4 @@
-import { IconBase } from "@components";
+import { IconBase } from "@/components";
 import React from "react";
 
 import { Svg, Path } from "react-native-svg";

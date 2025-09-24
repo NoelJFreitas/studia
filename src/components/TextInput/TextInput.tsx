@@ -10,7 +10,7 @@ import { Box, BoxProps, PressableBox } from "../Box/Box";
 import { Text } from "../Text/Text";
 import { APP_FONT_FAMILY } from "src/assets/fonts";
 
-import { colors } from "@theme";
+import { colors } from "@/theme";
 
 export interface TextInputProps extends RNTextInputProps {
   label: string;

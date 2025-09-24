@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { SimpleLogo } from "@brand";
-import { Screen } from "@components";
+import { SimpleLogo } from "@/brand";
+import { Screen } from "@/components";
 
-import { OnboardingScreenProps } from "@routes";
+import { OnboardingScreenProps } from "@/routes";
 
 export function SplashScreen({
   navigation,

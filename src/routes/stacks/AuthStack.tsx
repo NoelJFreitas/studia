@@ -1,5 +1,5 @@
+import { LoginScreen } from "@/screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LoginScreen } from "@screens";
 
 import { CreateAccountScreen } from "src/screens/authentication/CreateAccountScreen/CreateAccountScreen";
 

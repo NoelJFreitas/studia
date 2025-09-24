@@ -1,6 +1,6 @@
-import { images } from "@assets";
-import { Box, Text } from "@components";
-import { useAppTheme } from "@hooks";
+import { images } from "@/assets";
+import { Box, Text } from "@/components";
+import { useAppTheme } from "@/hooks";
 import { Image } from "expo-image";
 import { ImageProps } from "react-native";
 

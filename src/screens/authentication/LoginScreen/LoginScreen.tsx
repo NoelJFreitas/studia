@@ -1,4 +1,4 @@
-import { SimpleLogo } from "@brand";
+import { SimpleLogo } from "@/brand";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Box,
@@ -7,9 +7,9 @@ import {
   FormTextInput,
   Screen,
   Text,
-} from "@components";
+} from "@/components";
 import { SocialLogin } from "./components/SocialLogin";
-import { AuthScreenProps } from "@routes";
+import { AuthScreenProps } from "@/routes";
 import { useForm } from "react-hook-form";
 import { defaultValues, loginSchema, LoginSchema } from "./schema";
 

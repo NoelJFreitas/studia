@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@components";
+import { Box, BoxProps } from "@/components";
 import { PaginationDot } from "./PaginationDot";
 
 interface Props extends BoxProps {

@@ -1,4 +1,4 @@
-import { images } from "@assets";
+import { images } from "@/assets";
 import { ImageProps } from "react-native";
 
 export interface OnboardingPageItem {

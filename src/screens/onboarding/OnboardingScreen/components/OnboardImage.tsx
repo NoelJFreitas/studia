@@ -1,4 +1,4 @@
-import { Box } from "@components";
+import { Box } from "@/components";
 import { Image, ImageStyle } from "expo-image";
 import { Dimensions } from "react-native";
 

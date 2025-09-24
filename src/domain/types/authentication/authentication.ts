@@ -21,3 +21,8 @@ export interface Authentication {
 export interface AuthenticatedUserSession extends Authentication {
   user: Profile;
 }
+
+export interface AuthenticationWithPasswordParams {
+  email: string;
+  password: string;
+}
