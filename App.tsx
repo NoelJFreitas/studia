@@ -10,6 +10,7 @@ import { APP_FONTS } from "src/assets/fonts";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { Router } from "@routes";
+import { AuthenticationProvider } from "@services";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -23,9 +24,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Router />
-        </NavigationContainer>
+        <AuthenticationProvider>
+          <NavigationContainer>
+            <Router />
+          </NavigationContainer>
+        </AuthenticationProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );

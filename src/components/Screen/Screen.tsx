@@ -1,8 +1,8 @@
-import { Box, BoxProps } from "@components";
 import { KeyboardAvoidingView } from "react-native";
 
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ScrollViewContainer, ViewContainer } from "./components";
+import { Box, BoxProps } from "../Box/Box";
 
 interface ScreenProps extends BoxProps {
   children: React.ReactNode;

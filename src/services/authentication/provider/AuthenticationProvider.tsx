@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { AuthenticationService } from "../types";
 import { AuthenticatedUserSession, Authentication, Profile } from "@domain";
-import AuthenticationStorage from "../auth-storage";
+import AuthenticationStorage from "../authStorage";
 
 export const AuthenticationContext = createContext<AuthenticationService>({
   authCredentials: null,
@@ -12,7 +12,7 @@ export const AuthenticationContext = createContext<AuthenticationService>({
   updateUser: async () => {},
 });
 
-export default function AuthenticationProvider({
+export function AuthenticationProvider({
   children,
 }: PropsWithChildren<object>) {
   const [user, setUser] = useState<Profile | null>(null);
