@@ -1,4 +1,8 @@
-import { AuthenticatedUserSession, Authentication, Profile } from "@domain";
+import {
+  AuthenticatedUserSession,
+  Authentication,
+} from "@/domain/authentication";
+import { Profile } from "@/domain/profile";
 
 export interface AuthenticationService {
   user: Profile | null;

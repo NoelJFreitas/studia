@@ -1,7 +1,12 @@
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
 import { AuthenticationService } from "../types";
-import { AuthenticatedUserSession, Authentication, Profile } from "@domain";
+
 import AuthenticationStorage from "../authStorage";
+import { Profile } from "@/domain/profile";
+import {
+  AuthenticatedUserSession,
+  Authentication,
+} from "@/domain/authentication";
 
 export const AuthenticationContext = createContext<AuthenticationService>({
   authCredentials: null,

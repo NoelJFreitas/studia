@@ -1,9 +1,9 @@
-import { Profile } from "./profile";
+import { Profile } from "../profile/types";
 
 export interface AuthenticationResponse {
   authToken: string;
   user: {
-    id: 1;
+    id: string;
     created_at: number;
     name: string;
     email: string;
