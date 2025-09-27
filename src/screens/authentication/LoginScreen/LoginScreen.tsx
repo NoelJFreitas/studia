@@ -12,8 +12,10 @@ import { SocialLogin } from "./components/SocialLogin";
 import { AuthScreenProps } from "@/routes";
 import { useForm } from "react-hook-form";
 import { defaultValues, loginSchema, LoginSchema } from "./schema";
+import { useAuthSignIn } from "@/domain/authentication";
 
 export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
+  const { signIn } = useAuthSignIn();
   const { control, formState, handleSubmit } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues,
@@ -24,9 +26,8 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
     navigation.navigate("CreateAccount");
   };
 
-  const onSubmit = () => {
-    //implementes
-    console.log("entrar");
+  const submitForm = (params: LoginSchema) => {
+    signIn(params);
   };
 
   return (
@@ -64,7 +65,7 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
         disabled={!formState.isValid}
         alignSelf="center"
         title="Entrar"
-        onPress={handleSubmit(onSubmit)}
+        onPress={handleSubmit(submitForm)}
         marginTop="xl"
       />
       <Text marginVertical="xl" textAlign="center" color="charcoalGray">

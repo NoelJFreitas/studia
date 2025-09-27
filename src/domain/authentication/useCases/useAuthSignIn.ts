@@ -7,10 +7,12 @@ import {
 import { MutationOptions } from "@/infra/types";
 import { useAuthCredentialsService } from "@/services";
 
-export function useSignIn(options?: MutationOptions<AuthenticatedUserSession>) {
+export function useAuthSignIn(
+  options?: MutationOptions<AuthenticatedUserSession>,
+) {
   const { saveCredentials } = useAuthCredentialsService();
 
-  return useMutation<
+  const mutation = useMutation<
     AuthenticatedUserSession,
     Error,
     AuthenticationWithPasswordParams
@@ -24,4 +26,11 @@ export function useSignIn(options?: MutationOptions<AuthenticatedUserSession>) {
       saveCredentials(authCredentials);
     },
   });
+
+  return {
+    signIn: mutation.mutate,
+    isLoading: mutation.isPending,
+    isError: mutation.isSuccess,
+    isSuccess: mutation.isSuccess,
+  };
 }
