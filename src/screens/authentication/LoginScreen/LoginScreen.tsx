@@ -16,8 +16,11 @@ import { useAuthSignIn } from "@/domain/authentication";
 import { useToastService } from "@/services/toast";
 
 export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
-  const { signIn } = useAuthSignIn();
   const { showToast } = useToastService();
+  const { signIn, isLoading } = useAuthSignIn({
+    onError: (message) => showToast({ message, type: "error" }),
+  });
+
   const { control, formState, handleSubmit } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues,
@@ -25,8 +28,7 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
   });
 
   const handleNavigateToCreateAccount = () => {
-    // navigation.navigate("CreateAccount");
-    showToast({ message: "teste de toast ", type: "error" });
+    navigation.navigate("CreateAccount");
   };
 
   const submitForm = (params: LoginSchema) => {
@@ -68,6 +70,7 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
         disabled={!formState.isValid}
         alignSelf="center"
         title="Entrar"
+        loading={isLoading}
         onPress={handleSubmit(submitForm)}
         marginTop="xl"
       />
