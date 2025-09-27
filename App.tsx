@@ -12,6 +12,7 @@ import { theme } from "@/theme";
 import { AuthenticationProvider } from "@/services";
 import { Router } from "@/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toast } from "@/components";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -29,6 +30,7 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <AuthenticationProvider>
             <NavigationContainer>
+              <Toast />
               <Router />
             </NavigationContainer>
           </AuthenticationProvider>

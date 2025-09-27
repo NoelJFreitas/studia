@@ -7,3 +7,4 @@ export * from "./TextInput/TextInput";
 export * from "./PasswordInput/PasswordInput";
 export * from "./FormTextInput/FormTextInput";
 export * from "./FormPasswordInput/FormPasswordInput";
+export * from "./Toast/Toast";

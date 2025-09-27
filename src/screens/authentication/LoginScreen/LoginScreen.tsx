@@ -13,9 +13,11 @@ import { AuthScreenProps } from "@/routes";
 import { useForm } from "react-hook-form";
 import { defaultValues, loginSchema, LoginSchema } from "./schema";
 import { useAuthSignIn } from "@/domain/authentication";
+import { useToastService } from "@/services/toast";
 
 export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
   const { signIn } = useAuthSignIn();
+  const { showToast } = useToastService();
   const { control, formState, handleSubmit } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues,
@@ -23,7 +25,8 @@ export function LoginScreen({ navigation }: AuthScreenProps<"Login">) {
   });
 
   const handleNavigateToCreateAccount = () => {
-    navigation.navigate("CreateAccount");
+    // navigation.navigate("CreateAccount");
+    showToast({ message: "teste de toast ", type: "error" });
   };
 
   const submitForm = (params: LoginSchema) => {

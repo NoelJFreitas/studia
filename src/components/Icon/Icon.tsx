@@ -5,8 +5,10 @@ import { useAppTheme } from "@/hooks";
 import { ThemeColors } from "@/theme";
 
 import { MicrophoneIcon } from "src/assets/icons/MicrophoneIcon";
-import { EyeOnIcon } from "src/assets/icons/EyeOnIcon";
+import { InfoIcon } from "@/assets/icons/InfoIcon";
 import { EyeOffIcon } from "src/assets/icons/EyeOffIcon";
+import { EyeOnIcon } from "@/assets/icons/EyeOnIcon copy";
+import { SuccessIcon } from "@/assets/icons/SuccessIcon";
 
 export interface IconBase {
   size?: number;
@@ -45,6 +47,8 @@ const iconRegistry = {
   microphone: MicrophoneIcon,
   eyeOn: EyeOnIcon,
   eyeOff: EyeOffIcon,
+  info: InfoIcon,
+  success: SuccessIcon,
 };
 
 type IconType = typeof iconRegistry;
