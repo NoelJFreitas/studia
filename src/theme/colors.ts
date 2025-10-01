@@ -14,6 +14,7 @@ export const palette = {
   lightSilver: "#F5F5F5",
   base: "#fcfcfc",
   red: "#FF0000",
+  lightPurple: "#B6B0D9",
 };
 
 const lightTheme = {

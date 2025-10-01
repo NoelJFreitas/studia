@@ -7,7 +7,10 @@ function toAuthCredentials(
     token: raw.authToken,
     expiresAt: new Date(),
     userId: raw.user.id,
-    user: raw.user,
+    user: {
+      ...raw.user,
+      avatar: raw.user?.avatar.url,
+    },
   };
 }
 

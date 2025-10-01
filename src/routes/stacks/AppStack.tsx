@@ -1,4 +1,4 @@
-import { Text, Screen as ScreenComp } from "@/components";
+import { HomeScreen } from "@/screens";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -11,15 +11,7 @@ const { Navigator, Screen } = createNativeStackNavigator<AppStackParamList>();
 export function AppStack() {
   return (
     <Navigator id={undefined} screenOptions={{ headerShown: false }}>
-      <Screen name="Home" component={Home} />
+      <Screen name="Home" component={HomeScreen} />
     </Navigator>
   );
 }
-
-const Home = () => {
-  return (
-    <ScreenComp justifyContent="center" alignItems="center">
-      <Text>Home Screen</Text>
-    </ScreenComp>
-  );
-};

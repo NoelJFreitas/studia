@@ -9,6 +9,9 @@ export interface AuthenticationResponse {
     email: string;
     password: number;
     course: string;
+    avatar?: {
+      url;
+    };
   };
 }
 
