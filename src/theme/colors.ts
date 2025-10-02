@@ -9,6 +9,7 @@ export const palette = {
   offWhite: "#FBFBFB",
   jetBlack: "#1E2124",
   coolGray: "#B8BBBE",
+  mediumGray: "#828282",
   darkSlate: "#282B2E",
   lightGray: "#E2E2E2",
   lightSilver: "#F5F5F5",
@@ -22,7 +23,7 @@ const lightTheme = {
   primary: palette.vibrantPurple,
   primaryContrast: palette.offWhite,
 
-  background: palette.pureWhite,
+  background: palette.base,
 
   buttonPrimary: palette.almostBlack,
   buttonTextPrimary: palette.pureWhite,

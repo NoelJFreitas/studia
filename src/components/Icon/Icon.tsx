@@ -9,6 +9,7 @@ import { InfoIcon } from "@/assets/icons/InfoIcon";
 import { EyeOffIcon } from "src/assets/icons/EyeOffIcon";
 import { EyeOnIcon } from "@/assets/icons/EyeOnIcon copy";
 import { SuccessIcon } from "@/assets/icons/SuccessIcon";
+import { SearchIcon } from "@/assets/icons/SearchIcon";
 
 export interface IconBase {
   size?: number;
@@ -22,6 +23,15 @@ export interface IconProps {
   size?: number;
   onPress?: () => void;
 }
+
+const iconRegistry = {
+  microphone: MicrophoneIcon,
+  eyeOn: EyeOnIcon,
+  eyeOff: EyeOffIcon,
+  info: InfoIcon,
+  success: SuccessIcon,
+  search: SearchIcon,
+};
 
 export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
   const { colors } = useAppTheme();
@@ -42,14 +52,6 @@ export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
 
   return <SVGIcon {...iconProps} />;
 }
-
-const iconRegistry = {
-  microphone: MicrophoneIcon,
-  eyeOn: EyeOnIcon,
-  eyeOff: EyeOffIcon,
-  info: InfoIcon,
-  success: SuccessIcon,
-};
 
 type IconType = typeof iconRegistry;
 

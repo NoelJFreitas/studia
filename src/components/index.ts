@@ -8,3 +8,4 @@ export * from "./PasswordInput/PasswordInput";
 export * from "./FormTextInput/FormTextInput";
 export * from "./FormPasswordInput/FormPasswordInput";
 export * from "./Toast/Toast";
+export * from "./SearchInput/SearchInput";
