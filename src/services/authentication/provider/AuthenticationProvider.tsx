@@ -7,6 +7,7 @@ import {
   AuthenticatedUserSession,
   Authentication,
 } from "@/domain/authentication";
+import { authService } from "../authService";
 
 export const AuthenticationContext = createContext<AuthenticationService>({
   authCredentials: null,
@@ -29,6 +30,7 @@ export function AuthenticationProvider({
   async function startAuthCredentials() {
     const ac = await AuthenticationStorage.get();
     if (!ac) return;
+    authService.updateToken(ac.token);
     setUser(ac.user);
     setAuthCredentials(ac);
     setIsAuthenticated(true);
@@ -38,6 +40,7 @@ export function AuthenticationProvider({
     AuthenticationStorage.set(ac);
     setAuthCredentials(ac);
     setUser(ac.user);
+    authService.updateToken(ac.token);
     setIsAuthenticated(true);
   }
 
@@ -45,6 +48,7 @@ export function AuthenticationProvider({
     AuthenticationStorage.remove();
     setAuthCredentials(null);
     setUser(null);
+    authService.removeToken();
     setIsAuthenticated(false);
   }
 

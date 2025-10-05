@@ -9,3 +9,5 @@ export * from "./FormTextInput/FormTextInput";
 export * from "./FormPasswordInput/FormPasswordInput";
 export * from "./Toast/Toast";
 export * from "./SearchInput/SearchInput";
+export * from "./TopicCard/TopicCard";
+export * from "./Tag/Tag";
