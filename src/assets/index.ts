@@ -4,4 +4,5 @@ export const images = {
   googleLogo: require("./img/googleLogo.png"),
   facebookLogo: require("./img/facebookLogo.png"),
   defaultProfileAvatar: require("./img/defaultProfileAvatar.png"),
+  folderBackground: require("./img/folderBackground.png"),
 };

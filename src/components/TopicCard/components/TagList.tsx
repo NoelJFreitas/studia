@@ -13,6 +13,7 @@ export default function TagList({ tags }: Props) {
       <FlatList
         data={tags}
         horizontal
+        scrollEnabled={false}
         ItemSeparatorComponent={() => <Box width={10} />}
         renderItem={({ item }) => <Tag color={item.color} text={item.title} />}
         keyExtractor={(item, index) => item.title + index}

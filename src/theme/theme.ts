@@ -21,6 +21,7 @@ export const theme = createTheme({
     md: 12,
     lg: 16,
     xl: 24,
+    huge: 56,
   },
   textVariants: {
     defaults: {},

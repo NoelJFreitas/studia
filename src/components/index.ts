@@ -11,3 +11,4 @@ export * from "./Toast/Toast";
 export * from "./SearchInput/SearchInput";
 export * from "./TopicCard/TopicCard";
 export * from "./Tag/Tag";
+export * from "./Workspace/Workspace";
