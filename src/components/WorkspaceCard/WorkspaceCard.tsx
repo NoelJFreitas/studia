@@ -12,7 +12,7 @@ interface Props extends ViewProps {
 
 const width = Dimensions.get("screen").width;
 
-export function Workspace({ quantity, title, ...props }: Props) {
+export function WorkspaceCard({ quantity, title, ...props }: Props) {
   return (
     <ImageBackground
       {...props}

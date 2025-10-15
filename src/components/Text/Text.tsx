@@ -10,6 +10,7 @@ type TextVariants =
   | "headingMedium"
   | "headingSmall"
   | "paragraphMedium"
+  | "headingMedium2"
   | "paragraphCaption"
   | "paragraphCaptionSmall"
   | "paragraphCaptionExtraSmall";
@@ -46,6 +47,7 @@ export function Text({
 
 export const fontSizes: Record<TextVariants, TextStyle> = {
   headingLarge: { fontSize: 32 },
+  headingMedium2: { fontSize: 24 },
   headingMedium: { fontSize: 20 },
   headingSmall: { fontSize: 16 },
 

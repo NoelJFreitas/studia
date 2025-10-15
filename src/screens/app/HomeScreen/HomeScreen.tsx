@@ -1,4 +1,4 @@
-import { Box, Screen, SearchInput, Workspace } from "@/components";
+import { Box, Screen, SearchInput, WorkspaceCard } from "@/components";
 import { HomeHeader } from "./components/HomeHeader";
 import { MostRecent } from "./components/MostRecent";
 import { LegendList } from "@legendapp/list";
@@ -37,7 +37,7 @@ export function HomeScreen() {
         keyExtractor={(item) => item.title}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <Box width={10} />}
-        renderItem={() => <Workspace title="Pessoal" quantity={10} />}
+        renderItem={() => <WorkspaceCard title="Pessoal" quantity={10} />}
       />
     </Screen>
   );
