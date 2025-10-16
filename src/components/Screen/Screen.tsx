@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 
 interface ScreenProps extends BoxProps {
   children: React.ReactNode;
+  BottomComponent: React.ReactNode;
   scrollable?: boolean;
   noPaddingHorizontal?: boolean;
   headerTitle?: string;
@@ -21,6 +22,7 @@ export function Screen({
   headerTitle,
   noPaddingHorizontal,
   showHeader,
+  BottomComponent,
   ...props
 }: ScreenProps) {
   const { top, bottom } = useSafeAreaInsets();
@@ -47,6 +49,7 @@ export function Screen({
           {children}
         </Box>
       </Container>
+      {BottomComponent && BottomComponent}
     </KeyboardAvoidingView>
   );
 }

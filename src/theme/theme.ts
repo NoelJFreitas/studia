@@ -42,3 +42,15 @@ export const $shadowProps: ViewStyle = {
 
   elevation: 6,
 };
+
+export const $purpleShadowProps: ViewStyle = {
+  shadowColor: "#9747FF60",
+  shadowOffset: {
+    width: 0,
+    height: 3,
+  },
+  shadowOpacity: 0.27,
+  shadowRadius: 4.65,
+
+  elevation: 6,
+};

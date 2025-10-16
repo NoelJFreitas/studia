@@ -12,3 +12,4 @@ export * from "./SearchInput/SearchInput";
 export * from "./TopicCard/TopicCard";
 export * from "./Tag/Tag";
 export * from "./WorkspaceCard/WorkspaceCard";
+export * from "./FloatingButton/FloatingButton";

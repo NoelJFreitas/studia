@@ -11,6 +11,7 @@ import { EyeOnIcon } from "@/assets/icons/EyeOnIcon copy";
 import { SuccessIcon } from "@/assets/icons/SuccessIcon";
 import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { ArrowLeftIcon } from "@/assets/icons/ArrowLeft";
+import { PlusIcon } from "@/assets/icons/PlusIcon";
 
 export interface IconBase {
   size?: number;
@@ -33,6 +34,7 @@ const iconRegistry = {
   success: SuccessIcon,
   search: SearchIcon,
   arrowLeft: ArrowLeftIcon,
+  plus: PlusIcon,
 };
 
 export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {

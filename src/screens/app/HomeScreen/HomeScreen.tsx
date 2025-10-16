@@ -1,4 +1,10 @@
-import { Box, Screen, SearchInput, WorkspaceCard } from "@/components";
+import {
+  Box,
+  FloatingButton,
+  Screen,
+  SearchInput,
+  WorkspaceCard,
+} from "@/components";
 import { HomeHeader } from "./components/HomeHeader";
 import { MostRecent } from "./components/MostRecent";
 import { LegendList } from "@legendapp/list";
@@ -25,7 +31,12 @@ export function HomeScreen() {
   };
 
   return (
-    <Screen backgroundColor="offWhite" rowGap="lg" scrollable>
+    <Screen
+      backgroundColor="offWhite"
+      rowGap="lg"
+      scrollable
+      BottomComponent={<FloatingButton />}
+    >
       <HomeHeader />
       <SearchInput placeholder="Buscar" />
       <MostRecent />
