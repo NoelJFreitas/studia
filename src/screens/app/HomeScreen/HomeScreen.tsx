@@ -10,6 +10,10 @@ import { MostRecent } from "./components/MostRecent";
 import { LegendList } from "@legendapp/list";
 import { useAppTheme } from "@/hooks";
 import { ViewStyle } from "react-native";
+import {
+  DropdownMenuProps,
+  useDropdownMenuService,
+} from "@/services/dropdownMenu";
 
 const items = [
   { title: "Item 1", quantity: 3 },
@@ -19,8 +23,15 @@ const items = [
   { title: "Item 5", quantity: 1 },
 ];
 
+const menu: DropdownMenuProps[] = [
+  { icon: "info", title: "informacao", onPress: () => {} },
+  { icon: "success", title: "sucesso", onPress: () => {} },
+  { icon: "camera", title: "camera", onPress: () => {} },
+];
+
 export function HomeScreen() {
   const { spacing } = useAppTheme();
+  const { showDropdownMenu } = useDropdownMenuService();
 
   const $content: ViewStyle = {
     gap: spacing.sm,
@@ -30,12 +41,16 @@ export function HomeScreen() {
     overflow: "visible",
   };
 
+  function handleOnPressFloatingButton() {
+    showDropdownMenu(menu);
+  }
+
   return (
     <Screen
       backgroundColor="offWhite"
       rowGap="lg"
       scrollable
-      BottomComponent={<FloatingButton />}
+      BottomComponent={<FloatingButton onPress={handleOnPressFloatingButton} />}
     >
       <HomeHeader />
       <SearchInput placeholder="Buscar" />

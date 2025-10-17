@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@10play/tentap-editor": "github:starburst997/10tap-editor#jd",
+    "@gorhom/bottom-sheet": "^5",
     "@hookform/resolvers": "^5.2.2",
     "@legendapp/list": "^2.0.9",
     "@react-navigation/elements": "^2.6.4",
@@ -29,8 +30,9 @@
     "react": "19.0.0",
     "react-hook-form": "^7.62.0",
     "react-native": "0.79.5",
+    "react-native-gesture-handler": "~2.24.0",
     "react-native-mmkv": "^3.3.3",
-    "react-native-reanimated": "^4.1.0",
+    "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-svg": "15.11.2",

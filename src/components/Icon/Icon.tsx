@@ -12,6 +12,7 @@ import { SuccessIcon } from "@/assets/icons/SuccessIcon";
 import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { ArrowLeftIcon } from "@/assets/icons/ArrowLeft";
 import { PlusIcon } from "@/assets/icons/PlusIcon";
+import { CameraIcon } from "@/assets/icons/CameraIcon";
 
 export interface IconBase {
   size?: number;
@@ -35,6 +36,7 @@ const iconRegistry = {
   search: SearchIcon,
   arrowLeft: ArrowLeftIcon,
   plus: PlusIcon,
+  camera: CameraIcon,
 };
 
 export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
@@ -59,4 +61,4 @@ export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
 
 type IconType = typeof iconRegistry;
 
-type IconName = keyof IconType;
+export type IconName = keyof IconType;

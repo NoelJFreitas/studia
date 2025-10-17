@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as SplashScreenExpo from "expo-splash-screen";
 
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { ThemeProvider } from "@shopify/restyle";
 import { useFonts } from "expo-font";
@@ -12,7 +13,7 @@ import { theme } from "@/theme";
 import { AuthenticationProvider } from "@/services";
 import { Router } from "@/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toast } from "@/components";
+import { DropdownMenu, Toast } from "@/components";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -26,16 +27,19 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <AuthenticationProvider>
-            <NavigationContainer>
-              <Toast />
-              <Router />
-            </NavigationContainer>
-          </AuthenticationProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
+      <GestureHandlerRootView>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <AuthenticationProvider>
+              <NavigationContainer>
+                <Toast />
+                <Router />
+                <DropdownMenu />
+              </NavigationContainer>
+            </AuthenticationProvider>
+          </ThemeProvider>
+        </QueryClientProvider>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   );
 }
