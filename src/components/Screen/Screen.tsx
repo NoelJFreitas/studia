@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 
 interface ScreenProps extends BoxProps {
   children: React.ReactNode;
-  BottomComponent: React.ReactNode;
+  BottomComponent?: React.ReactNode;
   scrollable?: boolean;
   noPaddingHorizontal?: boolean;
   headerTitle?: string;

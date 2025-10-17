@@ -14,6 +14,8 @@ import { ArrowLeftIcon } from "@/assets/icons/ArrowLeft";
 import { PlusIcon } from "@/assets/icons/PlusIcon";
 import { CameraIcon } from "@/assets/icons/CameraIcon";
 import { CloseIcon } from "@/assets/icons/CloseIcon";
+import { PapersIcon } from "@/assets/icons/PapersIcon";
+import { WorkIcon } from "@/assets/icons/WorkIcon";
 
 export interface IconBase {
   size?: number;
@@ -39,7 +41,15 @@ const iconRegistry = {
   plus: PlusIcon,
   camera: CameraIcon,
   close: CloseIcon,
+  papers: PapersIcon,
+  work: WorkIcon,
 };
+
+type IconType = typeof iconRegistry;
+
+export type IconName = keyof IconType;
+
+export const iconNames = Object.keys(iconRegistry) as IconName[];
 
 export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
   const { colors } = useAppTheme();
@@ -60,7 +70,3 @@ export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
 
   return <SVGIcon {...iconProps} />;
 }
-
-type IconType = typeof iconRegistry;
-
-export type IconName = keyof IconType;

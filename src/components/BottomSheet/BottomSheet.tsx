@@ -9,6 +9,8 @@ import {
 import { ViewStyle } from "react-native";
 import { BottomSheetContent } from "./components/BottomSheetContent";
 import { useBottomSheet, useBottomSheetService } from "@/services/bottomSheet";
+import { Text } from "../Text/Text";
+import { CreateWorkspace } from "../CreateWorkspace/CreateWorkspace";
 
 export function BottomSheet() {
   const bottomSheetContent = useBottomSheet();
@@ -22,6 +24,7 @@ export function BottomSheet() {
   }
 
   useEffect(() => {
+    bottomSheetModalRef.current?.present();
     if (bottomSheetContent) {
       bottomSheetModalRef.current?.present();
     }
@@ -30,8 +33,9 @@ export function BottomSheet() {
   return (
     <BottomSheetModalProvider>
       <BottomSheetModal
-        index={1}
-        snapPoints={["80%"]}
+        // index={1}
+        // snapPoints={["80%"]}
+        enableDynamicSizing
         ref={bottomSheetModalRef}
         containerStyle={$containerStyle}
         backdropComponent={(props) => (
@@ -48,7 +52,8 @@ export function BottomSheet() {
             title={bottomSheetContent?.title}
             handleOnClose={handleCloseBottomSheet}
           >
-            {bottomSheetContent?.element && bottomSheetContent.element}
+            {/* {bottomSheetContent?.element && bottomSheetContent.element} */}
+            <CreateWorkspace />
           </BottomSheetContent>
         </BottomSheetView>
       </BottomSheetModal>

@@ -1,4 +1,4 @@
-import { Box } from "@/components/Box/Box";
+import { Box, PressableBox } from "@/components/Box/Box";
 import { Icon } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
 import { Pressable } from "react-native";
@@ -15,17 +15,24 @@ export function BottomSheetContent({
   handleOnClose,
 }: BottomSheetContentProps) {
   return (
-    <Box>
-      <Box justifyContent="center" alignItems="center" flexDirection="row">
+    <Box padding="md">
+      <Box
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection="row"
+      >
         <Text preset="headingSmall" fontWeight="medium">
-          {title}
+          {/* {title} */}
+          Vamos criar seu diretório!
         </Text>
-        <Pressable
-          style={{ position: "absolute", right: 18 }}
+        <PressableBox
+          padding="xs"
+          borderRadius="lg"
+          backgroundColor="coolGray"
           onPress={handleOnClose}
         >
-          <Icon name="close" />
-        </Pressable>
+          <Icon name="close" color="pureWhite" />
+        </PressableBox>
       </Box>
       {children}
     </Box>
