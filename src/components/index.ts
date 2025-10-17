@@ -14,3 +14,4 @@ export * from "./Tag/Tag";
 export * from "./WorkspaceCard/WorkspaceCard";
 export * from "./FloatingButton/FloatingButton";
 export * from "./DropdownMenu/DropdownMenu";
+export * from "./BottomSheet/BottomSheet";

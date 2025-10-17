@@ -14,6 +14,7 @@ import {
   DropdownMenuProps,
   useDropdownMenuService,
 } from "@/services/dropdownMenu";
+import { useBottomSheetService } from "@/services";
 
 const items = [
   { title: "Item 1", quantity: 3 },
@@ -32,6 +33,7 @@ const menu: DropdownMenuProps[] = [
 export function HomeScreen() {
   const { spacing } = useAppTheme();
   const { showDropdownMenu } = useDropdownMenuService();
+  const { showBottomSheet } = useBottomSheetService();
 
   const $content: ViewStyle = {
     gap: spacing.sm,

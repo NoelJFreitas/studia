@@ -13,6 +13,7 @@ import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { ArrowLeftIcon } from "@/assets/icons/ArrowLeft";
 import { PlusIcon } from "@/assets/icons/PlusIcon";
 import { CameraIcon } from "@/assets/icons/CameraIcon";
+import { CloseIcon } from "@/assets/icons/CloseIcon";
 
 export interface IconBase {
   size?: number;
@@ -37,6 +38,7 @@ const iconRegistry = {
   arrowLeft: ArrowLeftIcon,
   plus: PlusIcon,
   camera: CameraIcon,
+  close: CloseIcon,
 };
 
 export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {

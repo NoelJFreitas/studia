@@ -13,7 +13,8 @@ import { theme } from "@/theme";
 import { AuthenticationProvider } from "@/services";
 import { Router } from "@/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { DropdownMenu, Toast } from "@/components";
+import { BottomSheet, DropdownMenu, Toast } from "@/components";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);
@@ -28,17 +29,20 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
-        <QueryClientProvider client={queryClient}>
-          <ThemeProvider theme={theme}>
-            <AuthenticationProvider>
-              <NavigationContainer>
-                <Toast />
-                <Router />
-                <DropdownMenu />
-              </NavigationContainer>
-            </AuthenticationProvider>
-          </ThemeProvider>
-        </QueryClientProvider>
+        <BottomSheetModalProvider>
+          <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={theme}>
+              <AuthenticationProvider>
+                <NavigationContainer>
+                  <Toast />
+                  <Router />
+                  <DropdownMenu />
+                  <BottomSheet />
+                </NavigationContainer>
+              </AuthenticationProvider>
+            </ThemeProvider>
+          </QueryClientProvider>
+        </BottomSheetModalProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );
