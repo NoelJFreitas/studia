@@ -5,6 +5,7 @@ import { $shadowProps } from "@/theme";
 import { TopicTitleContainer } from "./components/TopicTitleContainer";
 import TagList from "./components/TagList";
 import { Topic } from "@/domain/Topic";
+import Animated, { FadeInUp } from "react-native-reanimated";
 
 const WIDTH = Dimensions.get("screen").width;
 
@@ -12,14 +13,17 @@ interface Props {
   topic: Topic;
 }
 
+const AnimatedBox = Animated.createAnimatedComponent(Box);
+
 export function TopicCard({ topic }: Props) {
   return (
-    <Box
+    <AnimatedBox
       style={[$boxStyle, $shadowProps]}
       backgroundColor="pureWhite"
       borderRadius="md"
       padding="sm"
       rowGap="sm"
+      entering={FadeInUp.duration(600)}
     >
       <TagList tags={topic.tags} />
       <TopicTitleContainer />
@@ -27,7 +31,7 @@ export function TopicCard({ topic }: Props) {
         Componentes atômicos são utilizados em design systems de alto padrão
         para serem escalá....
       </Text>
-    </Box>
+    </AnimatedBox>
   );
 }
 

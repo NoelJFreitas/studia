@@ -26,6 +26,7 @@ export interface IconBase {
 export interface IconProps {
   name: IconName;
   color?: ThemeColors;
+  hexadecimalColor?: string;
   size?: number;
   onPress?: () => void;
 }
@@ -51,13 +52,19 @@ export type IconName = keyof IconType;
 
 export const iconNames = Object.keys(iconRegistry) as IconName[];
 
-export function Icon({ name, color = "jetBlack", size, onPress }: IconProps) {
+export function Icon({
+  name,
+  color = "jetBlack",
+  size,
+  onPress,
+  hexadecimalColor,
+}: IconProps) {
   const { colors } = useAppTheme();
   const SVGIcon = iconRegistry[name];
 
   const iconProps: React.ComponentProps<typeof SVGIcon> = {
     size,
-    color: colors[color],
+    color: hexadecimalColor ? hexadecimalColor : colors[color],
   };
 
   if (onPress) {

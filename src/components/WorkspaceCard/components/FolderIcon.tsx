@@ -1,13 +1,16 @@
 import { Box } from "@/components/Box/Box";
-import { Icon } from "@/components/Icon/Icon";
-import { useAppTheme } from "@/hooks";
+import { Icon, IconName } from "@/components/Icon/Icon";
+
 import { ViewStyle } from "react-native";
 
-export function FolderIcon() {
-  const { colors } = useAppTheme();
+interface Props {
+  icon: string;
+  color: string;
+}
 
+export function FolderIcon({ icon, color }: Props) {
   const $style: ViewStyle = {
-    backgroundColor: `${colors.primary}10`,
+    backgroundColor: `${color}10`,
     height: 52,
     width: 52,
   };
@@ -21,7 +24,7 @@ export function FolderIcon() {
       alignSelf="flex-start"
       style={$style}
     >
-      <Icon name="success" size={23} color="primary" />
+      <Icon name={icon as IconName} size={23} hexadecimalColor={color} />
     </Box>
   );
 }
