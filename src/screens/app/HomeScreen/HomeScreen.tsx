@@ -4,6 +4,7 @@ import {
   Screen,
   SearchInput,
   WorkspaceCard,
+  Text,
 } from "@/components";
 import { HomeHeader } from "./components/HomeHeader";
 import { MostRecent } from "./components/MostRecent";
@@ -48,10 +49,18 @@ export function HomeScreen() {
       <HomeHeader />
       <SearchInput placeholder="Buscar" />
       <MostRecent />
+      <Text preset="headingSmall" fontWeight="bold">
+        Meus diretórios
+      </Text>
       <LegendList
-        data={items}
+        data={[]}
         style={$style}
         numColumns={2}
+        ListEmptyComponent={() => (
+          <Text textAlign="center">
+            Ainda não possui diretórios, ao criar aparecerão aqui
+          </Text>
+        )}
         contentContainerStyle={$content}
         keyExtractor={(item) => item.title}
         showsVerticalScrollIndicator={false}

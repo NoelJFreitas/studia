@@ -14,7 +14,6 @@ export function Tag({ color, text }: Props) {
     borderWidth: 1,
   };
 
-  console.log(color);
   const textStyle: TextStyle = {
     color,
   };

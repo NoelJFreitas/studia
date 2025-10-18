@@ -65,6 +65,9 @@ export function CreateTag() {
       <ColorPickerModal visible={showModal} onSelectColor={onCloseColorModal} />
       <Text fontWeight="medium">Suas tags:</Text>
       <Box flexDirection="row" flexWrap="wrap" gap="sm">
+        {data.length === 0 && (
+          <Text>Você inda nao tem tags, ao criar elas apareceram aqui</Text>
+        )}
         {data?.map((item) => (
           <Tag color={item.color} text={item.title} key={item.id} />
         ))}
