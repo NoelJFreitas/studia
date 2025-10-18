@@ -44,7 +44,6 @@ export function TextInput({
           </Text>
           <RNTextInput
             {...props}
-            // autoCapitalize="characters"
             ref={inputRef}
             style={$textInputStyle}
             placeholderTextColor={colors.palette.lightGray}

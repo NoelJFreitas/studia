@@ -4,7 +4,9 @@ export interface TagApiResponse {
   color: string;
 }
 
-export type TagApiParams = Pick<TagApiResponse, "color" | "title">;
+export type TagApiParams = Pick<TagApiResponse, "title"> & {
+  color?: string;
+};
 
 export interface Tag {
   title: string;

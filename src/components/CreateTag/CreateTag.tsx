@@ -7,26 +7,30 @@ import { Button } from "../Button/Button";
 import { useCreateTag, useGetTags } from "@/domain/tag";
 import { Tag } from "../Tag/Tag";
 import { Text } from "../Text/Text";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useToastService } from "@/services/toast";
+import { ColorPickerInput } from "../ColorPickerInput/ColorPickerInput";
+import { ColorPickerModal } from "../ColorPickerModal/ColorPickerModal";
 
 export function CreateTag() {
   const { data } = useGetTags();
+
   const [color, setColor] = useState(undefined);
+  const [showModal, setShowModal] = useState(false);
+
   const { showToast } = useToastService();
   const { mutate, isPending } = useCreateTag({
     onErro: onErrorSubmit,
     onSuccess: onSuccessSubmit,
   });
 
-  const { control, formState, handleSubmit, getValues, reset } =
-    useForm<CreateTagSchema>({
-      resolver: zodResolver(createTagSchema),
-      mode: "onChange",
-    });
+  const { control, formState, handleSubmit, reset } = useForm<CreateTagSchema>({
+    resolver: zodResolver(createTagSchema),
+    mode: "onChange",
+  });
 
-  function submitForm(params: CreateTagSchema) {
-    mutate(params);
+  function submitForm({ title }: CreateTagSchema) {
+    mutate({ title, color });
   }
 
   function onSuccessSubmit() {
@@ -39,11 +43,10 @@ export function CreateTag() {
     showToast({ type: "error", message: "Falha ao criar a tag" });
   }
 
-  useEffect(() => {
-    if (formState.validatingFields.color) {
-      setColor(getValues("color"));
-    }
-  }, [formState.validatingFields.color, getValues]);
+  function onCloseColorModal(color: string) {
+    setColor(color);
+    setShowModal(false);
+  }
 
   return (
     <Box paddingVertical="md" rowGap="lg">
@@ -54,23 +57,12 @@ export function CreateTag() {
         autoCapitalize="none"
         placeholder="Digite o nome da tag"
       />
-      <FormTextInput
-        control={control}
-        name="color"
-        maxLength={6}
-        label="Nome da tag"
-        autoCorrect={false}
-        autoCapitalize="characters"
-        placeholder="Digite o Hexadecimal"
-        RightComponent={
-          <Box
-            height={15}
-            width={15}
-            borderWidth={1}
-            style={{ backgroundColor: `#${color}` }}
-          />
-        }
+      <ColorPickerInput
+        label="Selecione a cor"
+        colorSelected={color}
+        onPress={() => setShowModal(true)}
       />
+      <ColorPickerModal visible={showModal} onSelectColor={onCloseColorModal} />
       <Text fontWeight="medium">Suas tags:</Text>
       <Box flexDirection="row" flexWrap="wrap" gap="sm">
         {data?.map((item) => (

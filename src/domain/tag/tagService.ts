@@ -10,6 +10,7 @@ async function getTags(): Promise<Tag[]> {
     throw new Error("Falha ao buscar tags");
   }
 }
+
 async function createTag(params: TagApiParams): Promise<void> {
   try {
     await tagApi.createTag(tagAdapter.toTagApi(params));

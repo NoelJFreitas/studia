@@ -17,3 +17,4 @@ export * from "./DropdownMenu/DropdownMenu";
 export * from "./BottomSheet/BottomSheet";
 export * from "./CreateWorkspace/CreateWorkspace";
 export * from "./CreateTag/CreateTag";
+export * from "./ColorPickerModal/ColorPickerModal";
