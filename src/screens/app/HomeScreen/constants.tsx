@@ -4,7 +4,7 @@ import { DropdownMenuProps } from "@/services/dropdownMenu";
 
 export const MENU: DropdownMenuProps[] = [
   {
-    icon: "plus",
+    icon: "directory",
     title: "Criar diretório",
     onPress: () => {
       bottomSheetStore.setState({
@@ -16,13 +16,13 @@ export const MENU: DropdownMenuProps[] = [
     },
   },
   {
-    icon: "plus",
+    icon: "label",
     title: "Criar tag",
     onPress: () => {
       bottomSheetStore.setState({
         bottomSheet: {
           element: <CreateTag />,
-          title: "Vamos criar sua nova tag! 🏷️",
+          title: "Vamos criar sua nova tag! 🔖",
         },
       });
     },

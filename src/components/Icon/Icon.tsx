@@ -13,9 +13,11 @@ import { SearchIcon } from "@/assets/icons/SearchIcon";
 import { ArrowLeftIcon } from "@/assets/icons/ArrowLeft";
 import { PlusIcon } from "@/assets/icons/PlusIcon";
 import { CameraIcon } from "@/assets/icons/CameraIcon";
-import { CloseIcon } from "@/assets/icons/CloseIcon";
+import { DirectoryIcon } from "@/assets/icons/DirectoryIcon";
 import { PapersIcon } from "@/assets/icons/PapersIcon";
 import { WorkIcon } from "@/assets/icons/WorkIcon";
+import { LabelIcon } from "@/assets/icons/LabelIcon";
+import { CloseIcon } from "@/assets/icons/CloseIcon";
 
 export interface IconBase {
   size?: number;
@@ -44,6 +46,8 @@ const iconRegistry = {
   close: CloseIcon,
   papers: PapersIcon,
   work: WorkIcon,
+  label: LabelIcon,
+  directory: DirectoryIcon,
 };
 
 type IconType = typeof iconRegistry;

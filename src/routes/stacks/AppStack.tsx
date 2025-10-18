@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 export type AppStackParamList = {
   Home: undefined;
   Editor: undefined;
-  Workspace: undefined;
+  Workspace: { id: number; name: string };
 };
 
 const { Navigator, Screen } = createNativeStackNavigator<AppStackParamList>();

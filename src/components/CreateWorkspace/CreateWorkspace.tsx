@@ -14,23 +14,35 @@ import { IconName } from "../Icon/Icon";
 import { ColorPickerInput } from "../ColorPickerInput/ColorPickerInput";
 import { ColorPickerModal } from "../ColorPickerModal/ColorPickerModal";
 import { useCreateDirectory } from "@/domain/directory";
+import { useToastService } from "@/services/toast";
 
 export function CreateWorkspace() {
   const [showModal, setShowModal] = useState(false);
   const [iconColor, setColor] = useState<string>();
   const [icon, setIcon] = useState<IconName>();
+  const { showToast } = useToastService();
 
-  const { mutate } = useCreateDirectory();
-
-  const { control, formState, handleSubmit } = useForm<CreateWorkspaceSchema>({
-    resolver: zodResolver(createWorkspaceSchema),
-    defaultValues,
-    mode: "onChange",
+  const { mutate, isPending } = useCreateDirectory({
+    onSuccess: onSuccessSubmitForm,
+    onError: () =>
+      showToast({ message: "Falha ao criar diretório", type: "error" }),
   });
+
+  const { control, formState, handleSubmit, reset } =
+    useForm<CreateWorkspaceSchema>({
+      resolver: zodResolver(createWorkspaceSchema),
+      defaultValues,
+      mode: "onChange",
+    });
 
   function onCloseColorModal(iconColor: string) {
     setColor(iconColor);
     setShowModal(false);
+  }
+
+  function onSuccessSubmitForm() {
+    showToast({ message: "Diretório criado com sucesso" });
+    reset();
   }
 
   function onSubmitForm({ name }: CreateWorkspaceSchema) {
@@ -58,7 +70,8 @@ export function CreateWorkspace() {
         title={"salvar"}
         alignSelf="center"
         onPress={handleSubmit(onSubmitForm)}
-        disabled={!formState.isValid}
+        loading={isPending}
+        disabled={!formState.isValid || isPending}
       />
     </Box>
   );

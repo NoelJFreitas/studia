@@ -6,6 +6,7 @@ import {
 import { RootStackParamList } from "../router";
 import { AuthStackParamList } from "../stacks/AuthStack";
 import { OnboardingStackParamList } from "../stacks/OnboardingStack";
+import { AppStackParamList } from "../stacks/AppStack";
 
 declare global {
   namespace ReactNavigation {
@@ -22,6 +23,12 @@ declare module "@react-navigation/native" {
 export type AuthScreenProps<RouteName extends keyof AuthStackParamList> =
   CompositeScreenProps<
     NativeStackScreenProps<AuthStackParamList, RouteName>,
+    NativeStackScreenProps<RootStackParamList>
+  >;
+
+export type AppScreenProps<RouteName extends keyof AppStackParamList> =
+  CompositeScreenProps<
+    NativeStackScreenProps<AppStackParamList, RouteName>,
     NativeStackScreenProps<RootStackParamList>
   >;
 
