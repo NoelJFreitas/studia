@@ -9,6 +9,7 @@ import { $shadowProps } from "@/theme";
 import { Button } from "../Button/Button";
 import { useState } from "react";
 import { runOnJS } from "react-native-worklets";
+import { useAppTheme } from "@/hooks";
 
 interface Props {
   visible: boolean;
@@ -16,7 +17,8 @@ interface Props {
 }
 
 export function ColorPickerModal({ visible, onSelectColor }: Props) {
-  const [color, setColor] = useState("green");
+  const { colors } = useAppTheme();
+  const [color, setColor] = useState(colors["primary"]);
 
   function onComplete({ hex }) {
     "worklet";

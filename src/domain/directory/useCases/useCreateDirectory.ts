@@ -3,7 +3,9 @@ import { Directory, DirectoryApiParams } from "../types";
 import { directoryService } from "../directoryService";
 import { DefaultMutationOptions } from "@/types/mutation";
 
-export function useCreateTag(options?: DefaultMutationOptions<Directory>) {
+export function useCreateDirectory(
+  options?: DefaultMutationOptions<Directory>,
+) {
   const queryClient = useQueryClient();
 
   return useMutation({

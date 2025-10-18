@@ -19,7 +19,6 @@ export function DirectoriesList() {
     overflow: "visible",
   };
 
-  console.log(data);
   return (
     <AnimatedBox rowGap="lg" layout={LinearTransition}>
       <Text preset="headingSmall" fontWeight="bold">

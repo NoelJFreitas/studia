@@ -1,12 +1,17 @@
 import { Box, PressableBox } from "@/components/Box/Box";
 import { Icon, IconName, iconNames } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
+import { useAppTheme } from "@/hooks";
 
 interface Props {
   selected?: IconName;
   onSelect: (icon: IconName) => void;
+  color?: string;
 }
-export function IconSelector({ onSelect, selected }: Props) {
+export function IconSelector({ onSelect, selected, color }: Props) {
+  const { colors } = useAppTheme();
+  const iconColor = color ? color : colors["primary"];
+
   return (
     <Box rowGap="sm">
       <Text preset="paragraphCaption" color="primaryTitle" fontWeight="medium">
@@ -20,7 +25,9 @@ export function IconSelector({ onSelect, selected }: Props) {
             height={50}
             width={50}
             borderWidth={selected === name ? 2 : 1}
-            borderColor={selected === name ? "primary" : "mediumGray"}
+            style={{
+              borderColor: selected === name ? iconColor : colors["mediumGray"],
+            }}
             justifyContent="center"
             alignItems="center"
             borderRadius="sm"
@@ -28,7 +35,9 @@ export function IconSelector({ onSelect, selected }: Props) {
           >
             <Icon
               name={name}
-              color={selected === name ? "primary" : "mediumGray"}
+              hexadecimalColor={
+                selected === name ? iconColor : colors["mediumGray"]
+              }
               size={20}
             />
           </PressableBox>

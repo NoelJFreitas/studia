@@ -14,7 +14,7 @@ function toDirectory(raw: DirectoryApiResponse[]): Directory[] {
 function toDirectoryApi(raw: DirectoryApiParams): DirectoryApiParams {
   return {
     ...raw,
-    color: raw?.color ? raw.color : generateRandomHexColor(),
+    iconColor: raw.iconColor ?? generateRandomHexColor(),
   };
 }
 
