@@ -10,11 +10,9 @@ import { MostRecent } from "./components/MostRecent";
 import { LegendList } from "@legendapp/list";
 import { useAppTheme } from "@/hooks";
 import { ViewStyle } from "react-native";
-import {
-  DropdownMenuProps,
-  useDropdownMenuService,
-} from "@/services/dropdownMenu";
-import { useBottomSheetService } from "@/services";
+import { useDropdownMenuService } from "@/services/dropdownMenu";
+
+import { MENU } from "./constants";
 
 const items = [
   { title: "Item 1", quantity: 3 },
@@ -24,16 +22,9 @@ const items = [
   { title: "Item 5", quantity: 1 },
 ];
 
-const menu: DropdownMenuProps[] = [
-  { icon: "info", title: "informacao", onPress: () => {} },
-  { icon: "success", title: "sucesso", onPress: () => {} },
-  { icon: "camera", title: "camera", onPress: () => {} },
-];
-
 export function HomeScreen() {
   const { spacing } = useAppTheme();
   const { showDropdownMenu } = useDropdownMenuService();
-  const { showBottomSheet } = useBottomSheetService();
 
   const $content: ViewStyle = {
     gap: spacing.sm,
@@ -44,7 +35,7 @@ export function HomeScreen() {
   };
 
   function handleOnPressFloatingButton() {
-    showDropdownMenu(menu);
+    showDropdownMenu(MENU);
   }
 
   return (

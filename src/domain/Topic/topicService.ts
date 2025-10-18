@@ -6,8 +6,7 @@ async function getRecent(): Promise<Topic[]> {
   try {
     const response = await topicApi.getRecent();
     return topicAdapter.toTopics(response);
-  } catch (error) {
-    console.log(error);
+  } catch {
     throw new Error("Falha ao buscar tópicos recente");
   }
 }

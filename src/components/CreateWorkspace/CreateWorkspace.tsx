@@ -21,7 +21,6 @@ export function CreateWorkspace() {
     mode: "onChange",
   });
 
-  console.log(iconSelected);
   return (
     <Box paddingVertical="md" rowGap="lg">
       <FormTextInput

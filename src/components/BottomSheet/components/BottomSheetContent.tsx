@@ -1,7 +1,6 @@
 import { Box, PressableBox } from "@/components/Box/Box";
 import { Icon } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
-import { Pressable } from "react-native";
 
 export interface BottomSheetContentProps {
   title?: string;
@@ -22,8 +21,7 @@ export function BottomSheetContent({
         flexDirection="row"
       >
         <Text preset="headingSmall" fontWeight="medium">
-          {/* {title} */}
-          Vamos criar seu diretório!
+          {title}
         </Text>
         <PressableBox
           padding="xs"

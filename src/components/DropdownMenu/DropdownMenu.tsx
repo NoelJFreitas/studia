@@ -9,6 +9,7 @@ import {
 
 export function DropdownMenu() {
   const menuOptions = useDropdownMenu();
+
   const { hideDropdownMenu } = useDropdownMenuService();
 
   function handleOnCloseMenu() {
@@ -25,6 +26,7 @@ export function DropdownMenu() {
                 key={option.title}
                 option={option}
                 duration={600 + i * 100}
+                handleClose={handleOnCloseMenu}
               />
             ))}
           </Box>

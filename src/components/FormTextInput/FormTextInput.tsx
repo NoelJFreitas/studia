@@ -16,7 +16,7 @@ export function FormTextInput<FormType extends FieldValues>({
       control={control}
       name={name}
       rules={rules}
-      render={({ field, fieldState, ...props }) => (
+      render={({ field, fieldState }) => (
         <TextInput
           {...textInputProps}
           value={field.value}

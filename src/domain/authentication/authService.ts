@@ -10,10 +10,9 @@ async function signIn(
 ): Promise<AuthenticatedUserSession> {
   try {
     const authCredentialsAPI = await authApi.signIn(params);
-    console.log(authCredentialsAPI);
+
     return authAdapter.toAuthCredentials(authCredentialsAPI);
-  } catch (error) {
-    console.log(error);
+  } catch {
     throw new Error("email ou senha inválido");
   }
 }

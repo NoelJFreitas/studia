@@ -10,6 +10,8 @@ interface Props {
 export function Tag({ color, text }: Props) {
   const backgroundStyle: ViewStyle = {
     backgroundColor: `${color}10`,
+    borderColor: `${color}`,
+    borderWidth: 1,
   };
 
   const textStyle: TextStyle = {

@@ -1,18 +1,24 @@
-import { Box } from "@/components/Box/Box";
+import { PressableBox } from "@/components/Box/Box";
 import { Icon } from "@/components/Icon/Icon";
 import { Text } from "@/components/Text/Text";
 import { DropdownMenuProps } from "@/services/dropdownMenu";
 import { $shadowProps } from "@/theme";
 import Animated, { SlideInRight } from "react-native-reanimated";
 
-const AnimatedBox = Animated.createAnimatedComponent(Box);
+const AnimatedBox = Animated.createAnimatedComponent(PressableBox);
 
 interface Props {
   option: DropdownMenuProps;
   duration: number;
+  handleClose: () => void;
 }
 
-export function MenuItens({ option, duration }: Props) {
+export function MenuItens({ option, duration, handleClose }: Props) {
+  function handleOnPress() {
+    handleClose();
+    option.onPress();
+  }
+
   return (
     <AnimatedBox
       style={$shadowProps}
@@ -23,6 +29,7 @@ export function MenuItens({ option, duration }: Props) {
       alignItems="center"
       backgroundColor="pureWhite"
       justifyContent="space-between"
+      onPress={handleOnPress}
       entering={SlideInRight.duration(duration)}
     >
       <Text preset="paragraphCaption">{option.title}</Text>

@@ -1,3 +1,5 @@
+import { Tag } from "../tag";
+
 export interface TopicApiResponse {
   created_at: number;
   title: string;
@@ -10,9 +12,4 @@ export interface Topic {
   title: string;
   content: object;
   tags: Tag[];
-}
-
-export interface Tag {
-  title: string;
-  color: string;
 }
