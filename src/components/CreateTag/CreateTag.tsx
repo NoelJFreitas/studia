@@ -13,7 +13,7 @@ import { ColorPickerInput } from "../ColorPickerInput/ColorPickerInput";
 import { ColorPickerModal } from "../ColorPickerModal/ColorPickerModal";
 
 export function CreateTag() {
-  const { data } = useGetTags();
+  const { data, isLoading } = useGetTags();
 
   const [color, setColor] = useState(undefined);
   const [showModal, setShowModal] = useState(false);
@@ -65,7 +65,7 @@ export function CreateTag() {
       <ColorPickerModal visible={showModal} onSelectColor={onCloseColorModal} />
       <Text fontWeight="medium">Suas tags:</Text>
       <Box flexDirection="row" flexWrap="wrap" gap="sm">
-        {data.length === 0 && (
+        {!isLoading && data?.length === 0 && (
           <Text>Você inda nao tem tags, ao criar elas apareceram aqui</Text>
         )}
         {data?.map((item) => (
