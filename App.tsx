@@ -39,11 +39,11 @@ export default function App() {
             <ThemeProvider theme={theme}>
               <AuthenticationProvider>
                 <NavigationContainer>
+                  <Router />
                   <Toast />
                   <DropdownMenu />
                   <BottomSheet />
                   <FullScreenLoadingModal />
-                  <Router />
                 </NavigationContainer>
               </AuthenticationProvider>
             </ThemeProvider>

@@ -5,12 +5,13 @@ import LottieView from "lottie-react-native";
 import React, { useRef, useEffect, useState } from "react";
 import { Animated, Modal } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { useProcessingModal } from "@/services/processingModal";
 
 function randomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  return `rgba(${r}, ${g}, ${b}, 0.3)`;
+  return `rgba(${r}, ${g}, ${b}, 0.2)`;
 }
 
 function parseRGB(rgba: string) {
@@ -20,6 +21,8 @@ function parseRGB(rgba: string) {
 }
 
 export function FullScreenLoadingModal() {
+  const processingModal = useProcessingModal();
+
   const animatedValue = useRef(new Animated.Value(0)).current;
 
   const [locations, setLocations] = useState<[number, number, number]>([
@@ -86,7 +89,7 @@ export function FullScreenLoadingModal() {
             const r = Math.round(startRgb[0] + (endRgb[0] - startRgb[0]) * t);
             const g = Math.round(startRgb[1] + (endRgb[1] - startRgb[1]) * t);
             const b = Math.round(startRgb[2] + (endRgb[2] - startRgb[2]) * t);
-            return `rgba(${r}, ${g}, ${b}, 0.3)`;
+            return `rgba(${r}, ${g}, ${b}, 0.2)`;
           });
 
           setColors(blended);
@@ -110,8 +113,10 @@ export function FullScreenLoadingModal() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (!processingModal) return;
+
   return (
-    <Modal>
+    <Modal animationType="fade" visible={!!processingModal}>
       <LinearGradient
         colors={colors}
         locations={locations}
@@ -132,7 +137,7 @@ export function FullScreenLoadingModal() {
         />
 
         <Text fontWeight="medium" style={$shadowProps}>
-          Gerando nota, aguarde...
+          {processingModal?.title ?? "Loading..."}
         </Text>
       </LinearGradient>
     </Modal>

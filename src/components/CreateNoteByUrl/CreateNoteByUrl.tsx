@@ -4,8 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Box } from "../Box/Box";
 import { FormTextInput } from "../FormTextInput/FormTextInput";
 import { Button } from "../Button/Button";
+import { useProcessingModalService } from "@/services/processingModal";
 
 export function CreateNoteByUrl() {
+  const { showProcessingModal } = useProcessingModalService();
   const { control, formState, handleSubmit } = useForm<UrlSchema>({
     resolver: zodResolver(urlSchema),
     mode: "onChange",
@@ -13,6 +15,7 @@ export function CreateNoteByUrl() {
 
   function onSubmit(data: UrlSchema) {
     console.log(data);
+    showProcessingModal({});
   }
 
   return (
