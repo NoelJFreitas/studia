@@ -13,7 +13,12 @@ import { theme } from "@/theme";
 import { AuthenticationProvider } from "@/services";
 import { Router } from "@/routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BottomSheet, DropdownMenu, Toast } from "@/components";
+import {
+  BottomSheet,
+  DropdownMenu,
+  FullScreenLoadingModal,
+  Toast,
+} from "@/components";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 
 export default function App() {
@@ -35,9 +40,10 @@ export default function App() {
               <AuthenticationProvider>
                 <NavigationContainer>
                   <Toast />
-                  <Router />
                   <DropdownMenu />
                   <BottomSheet />
+                  <FullScreenLoadingModal />
+                  <Router />
                 </NavigationContainer>
               </AuthenticationProvider>
             </ThemeProvider>

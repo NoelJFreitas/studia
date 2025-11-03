@@ -2,7 +2,7 @@ import { Screen } from "@/components";
 import { RichText, useEditorBridge, Toolbar } from "@10play/tentap-editor";
 import { KeyboardAvoidingView, Platform } from "react-native";
 
-export function TextEditor() {
+export function NoteEditorScreen() {
   const editor = useEditorBridge({
     initialContent: {
       type: "doc",

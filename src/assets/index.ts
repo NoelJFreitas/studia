@@ -6,3 +6,7 @@ export const images = {
   defaultProfileAvatar: require("./img/defaultProfileAvatar.png"),
   folderBackground: require("./img/folderBackground.png"),
 };
+
+export const lottieAnimations = {
+  wave: require("./lottie/WaveAnimation.json"),
+};

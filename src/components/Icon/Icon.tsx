@@ -18,6 +18,7 @@ import { PapersIcon } from "@/assets/icons/PapersIcon";
 import { WorkIcon } from "@/assets/icons/WorkIcon";
 import { LabelIcon } from "@/assets/icons/LabelIcon";
 import { CloseIcon } from "@/assets/icons/CloseIcon";
+import { UrlIcon } from "@/assets/icons/UrlIcon";
 
 export interface IconBase {
   size?: number;
@@ -48,6 +49,7 @@ const iconRegistry = {
   work: WorkIcon,
   label: LabelIcon,
   directory: DirectoryIcon,
+  url: UrlIcon,
 };
 
 type IconType = typeof iconRegistry;

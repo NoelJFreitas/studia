@@ -23,7 +23,7 @@ export function DropdownMenu() {
           <Box position="absolute" bottom={130} right={18} rowGap="lg">
             {menuOptions?.map((option, i) => (
               <MenuItens
-                key={option.title}
+                key={`${option.title}-${i}`}
                 option={option}
                 duration={600 + i * 100}
                 handleClose={handleOnCloseMenu}
