@@ -20,7 +20,8 @@
             "./src/assets/fonts/Poppins-Bold.ttf",
             "./src/assets/fonts/Poppins-Light.ttf",
             "./src/assets/fonts/Poppins-Medium.ttf",
-            "./src/assets/fonts/Poppins-Regular.ttf"
+            "./src/assets/fonts/Poppins-Regular.ttf",
+            "./src/assets/fonts/FontAwesome.ttf"
           ]
         }
       ]

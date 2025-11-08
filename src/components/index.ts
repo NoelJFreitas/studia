@@ -20,3 +20,4 @@ export * from "./CreateTag/CreateTag";
 export * from "./ColorPickerModal/ColorPickerModal";
 export * from "./CreateNoteByUrl/CreateNoteByUrl";
 export * from "./FullScreenLoadingModal/FullScreenLoadingModal";
+export * from "./AwesomeIcon/AwesomeIcon";

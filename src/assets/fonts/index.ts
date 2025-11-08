@@ -4,6 +4,7 @@ export const APP_FONTS = {
   poppinsLight: require("./Poppins-Light.ttf"),
   poppinsMedium: require("./Poppins-Medium.ttf"),
   poppinsRegular: require("./Poppins-Regular.ttf"),
+  fontAwesome: require("./FontAwesome.ttf"),
 };
 
 type AppFontKeys = keyof typeof APP_FONTS;
@@ -14,4 +15,5 @@ export const APP_FONT_FAMILY: Record<AppFontKeys, string> = {
   poppinsLight: "poppinsLight",
   poppinsMedium: "poppinsMedium",
   poppinsRegular: "poppinsRegular",
+  fontAwesome: "FontAwesome",
 };

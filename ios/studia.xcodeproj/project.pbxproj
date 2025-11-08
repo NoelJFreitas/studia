@@ -19,6 +19,7 @@
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 		F7F4C1F496FD5DE2B6E004C4 /* libPods-studia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C0B2B28B691A6481B9CAB2 /* libPods-studia.a */; };
 		FD1C5908A06D4865905BB118 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF6EA2296BF4AE6AD758FF1 /* Poppins-Bold.ttf */; };
+		71544C04FAA646AB9E75AEA1 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E08E7C148B04B76B080C588 /* FontAwesome.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = studia/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* studia-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "studia-Bridging-Header.h"; path = "studia/studia-Bridging-Header.h"; sourceTree = "<group>"; };
+		3E08E7C148B04B76B080C588 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../src/assets/fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				4E41DF393E99454BB017D7BF /* Poppins-Light.ttf */,
 				5AB874B663EC4291A13F59FD /* Poppins-Medium.ttf */,
 				23511566462842528C8E857B /* Poppins-Regular.ttf */,
+				3E08E7C148B04B76B080C588 /* FontAwesome.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -226,6 +229,7 @@
 				859BD7A06CA840BA90171B2C /* Poppins-Light.ttf in Resources */,
 				526FAD893238422CAE1D76A8 /* Poppins-Medium.ttf in Resources */,
 				C980361EE42B4AF1B95CC4EB /* Poppins-Regular.ttf in Resources */,
+				71544C04FAA646AB9E75AEA1 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,11 +392,11 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.noelteixeira.studia;
-				PRODUCT_NAME = studia;
+				PRODUCT_NAME = "studia";
 				SWIFT_OBJC_BRIDGING_HEADER = "studia/studia-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -419,10 +423,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.noelteixeira.studia;
-				PRODUCT_NAME = studia;
+				PRODUCT_NAME = "studia";
 				SWIFT_OBJC_BRIDGING_HEADER = "studia/studia-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
