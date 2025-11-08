@@ -4,13 +4,13 @@ import { Text } from "../Text/Text";
 import { $shadowProps } from "@/theme";
 import { TopicTitleContainer } from "./components/TopicTitleContainer";
 import TagList from "./components/TagList";
-import { Topic } from "@/domain/Topic";
+import { Note } from "@/domain/note";
 import Animated, { FadeInUp } from "react-native-reanimated";
 
 const WIDTH = Dimensions.get("screen").width;
 
 interface Props {
-  topic: Topic;
+  topic: Note;
 }
 
 const AnimatedBox = Animated.createAnimatedComponent(Box);

@@ -1,5 +1,5 @@
 import { Box, Text, TopicCard } from "@/components";
-import { useGetRecentTopic } from "@/domain/Topic";
+import { useGetRecentTopic } from "@/domain/note";
 import { LegendList } from "@legendapp/list";
 import { ViewStyle } from "react-native";
 

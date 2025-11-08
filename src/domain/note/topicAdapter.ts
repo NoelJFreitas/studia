@@ -1,4 +1,4 @@
-import { Topic, TopicApiResponse } from "./types";
+import { Note, NoteApiResponse } from "./types";
 
 function formatRelativeTime(timestamp: number): string {
   const now = Date.now();
@@ -24,7 +24,7 @@ function formatRelativeTime(timestamp: number): string {
   return "+10 dias";
 }
 
-function toTopics(raw: TopicApiResponse[]): Topic[] {
+function toTopics(raw: NoteApiResponse[]): Note[] {
   return raw.map((item) => ({
     content: item.content,
     createdAt: formatRelativeTime(item.created_at),
@@ -33,4 +33,13 @@ function toTopics(raw: TopicApiResponse[]): Topic[] {
   }));
 }
 
-export const topicAdapter = { toTopics };
+function toTopic(raw: NoteApiResponse): Note {
+  return {
+    content: raw.content,
+    createdAt: formatRelativeTime(raw.created_at),
+    tags: raw.tags.map((item) => item[0]),
+    title: raw.title,
+  };
+}
+
+export const topicAdapter = { toTopics, toTopic };

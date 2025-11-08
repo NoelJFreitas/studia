@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export type AppStackParamList = {
   Home: undefined;
-  Editor: undefined;
+  Editor: { id: number };
   Workspace: { id: number; name: string };
   Loading: undefined;
 };
@@ -15,7 +15,7 @@ export function AppStack() {
   return (
     <Navigator
       id={undefined}
-      initialRouteName="Home"
+      initialRouteName="Editor"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="Home" component={HomeScreen} />

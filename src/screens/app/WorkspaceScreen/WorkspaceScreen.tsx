@@ -34,7 +34,7 @@ export function WorkspaceScreen({
       onPress: () => {
         bottomSheetStore.setState({
           bottomSheet: {
-            element: <CreateNoteByUrl />,
+            element: <CreateNoteByUrl directoryId={20} />,
             title: "Criar a partir de link! 🔗",
           },
         });
