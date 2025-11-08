@@ -5,15 +5,15 @@ import { APP_FONT_FAMILY } from "@/assets/fonts";
 import { ThemeColors } from "@/theme";
 import { useAppTheme } from "@/hooks";
 
-type IconName = keyof typeof glyphMap;
+export type AwesomeIconName = keyof typeof glyphMap;
 
-interface IconProps {
-  name: IconName;
+export interface AwesomeIconProps {
+  name: AwesomeIconName;
   size?: number;
   color?: ThemeColors;
 }
 
-export function AwesomeIconBase({ name, size, color }: IconProps) {
+export function AwesomeIconBase({ name, size, color }: AwesomeIconProps) {
   const { colors } = useAppTheme();
   const glyphValue = glyphMap[name];
   const glyph = String.fromCharCode(glyphValue);

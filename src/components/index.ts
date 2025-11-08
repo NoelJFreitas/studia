@@ -21,3 +21,4 @@ export * from "./ColorPickerModal/ColorPickerModal";
 export * from "./CreateNoteByUrl/CreateNoteByUrl";
 export * from "./FullScreenLoadingModal/FullScreenLoadingModal";
 export * from "./AwesomeIcon/AwesomeIcon";
+export * from "./ToolBar/ToolBar";

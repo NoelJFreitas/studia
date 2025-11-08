@@ -1,5 +1,6 @@
 export const palette = {
   vibrantPurple: "#9747FF",
+  vibrantPurple800: "#a76bf6ff",
   charcoalGray: "#454545",
   almostBlack: "#333333",
   pureWhite: "#FFFFFF",
@@ -21,6 +22,7 @@ export const palette = {
 const lightTheme = {
   ...palette,
   primary: palette.vibrantPurple,
+  primary800: palette.vibrantPurple800,
   primaryContrast: palette.offWhite,
 
   background: palette.base,
