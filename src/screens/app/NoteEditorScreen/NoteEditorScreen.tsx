@@ -1,26 +1,57 @@
-import { AwesomeIcon, Screen } from "@/components";
+import { Screen, Toolbar } from "@/components";
 import { AppScreenProps } from "@/routes";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   EnrichedTextInput,
   EnrichedTextInputInstance,
-  HtmlStyle,
+  OnChangeStateEvent,
 } from "react-native-enriched";
-import { Text } from "react-native";
-import { APP_FONT_FAMILY } from "@/assets/fonts";
+import { NativeSyntheticEvent, ScrollView, ViewStyle } from "react-native";
+import { DEFAULT_STYLE, htmlStyle } from "./constants";
+import { useGetNoteById } from "@/domain/note";
+import { useProcessingModalService } from "@/services/processingModal";
+
+export type StylesState = OnChangeStateEvent;
 
 export function NoteEditorScreen({
   route,
   navigation,
 }: AppScreenProps<"Editor">) {
-  const ref = useRef<EnrichedTextInputInstance>(null);
+  const { hideProcessingModal } = useProcessingModalService();
 
-  const glyph = String.fromCharCode(61595);
+  const { data } = useGetNoteById({
+    id: route.params.id,
+    onSuccess: () => hideProcessingModal(),
+    onError: () => navigation.goBack(),
+  });
+
+  const ref = useRef<EnrichedTextInputInstance>(null);
+  const [stylesState, setStylesState] = useState<StylesState>(DEFAULT_STYLE);
+
+  const handleChangeState = (e: NativeSyntheticEvent<OnChangeStateEvent>) => {
+    setStylesState(e.nativeEvent);
+  };
+
+  useEffect(() => {
+    if (!data) return;
+    ref.current.setValue(data.content.trim());
+  }, [data]);
 
   return (
-    <Screen flex={1}>
-      {/* <EnrichedTextInput style={{ flex: 1, top: 50 }} ref={ref} /> */}
-      <AwesomeIcon name="amazon" />
+    <Screen>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <EnrichedTextInput
+          style={$richText}
+          ref={ref}
+          htmlStyle={htmlStyle}
+          onChangeState={handleChangeState}
+        />
+      </ScrollView>
+      <Toolbar stylesState={stylesState} editorRef={ref} />
     </Screen>
   );
 }
+
+const $richText: ViewStyle = {
+  flex: 1,
+};

@@ -3,14 +3,14 @@ import { Tag } from "../tag";
 export interface NoteApiResponse {
   created_at: number;
   title: string;
-  content: object;
+  content: string;
   tags: Tag[][];
 }
 
 export interface Note {
   createdAt: string;
   title: string;
-  content: object;
+  content: string;
   tags: Tag[];
 }
 

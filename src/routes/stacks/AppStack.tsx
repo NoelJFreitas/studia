@@ -15,7 +15,7 @@ export function AppStack() {
   return (
     <Navigator
       id={undefined}
-      initialRouteName="Editor"
+      initialRouteName="Home"
       screenOptions={{ headerShown: false }}
     >
       <Screen name="Home" component={HomeScreen} />
