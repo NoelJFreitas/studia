@@ -1,4 +1,10 @@
-import { Note, NoteApiResponse } from "./types";
+import {
+  Note,
+  NoteApiResponse,
+  NoteListItem,
+  NoteListItemApiResponse,
+} from "./types";
+import moment from "moment";
 
 function formatRelativeTime(timestamp: number): string {
   const now = Date.now();
@@ -42,4 +48,13 @@ function toTopic(raw: NoteApiResponse): Note {
   };
 }
 
-export const topicAdapter = { toTopics, toTopic };
+function toDirectoryList(raw: NoteListItemApiResponse[]): NoteListItem[] {
+  return raw.map((item) => ({
+    createdAt: moment(item.created_at).format("DD/MM/YYYY"),
+    id: item.id,
+    shortDescription: item.short_description,
+    title: item.title,
+  }));
+}
+
+export const topicAdapter = { toTopics, toTopic, toDirectoryList };

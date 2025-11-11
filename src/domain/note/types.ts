@@ -23,3 +23,23 @@ export interface CreateNoteByUrlParams {
   title: string;
   directoryId: number;
 }
+
+//note list
+
+export interface GetNotListApiParams {
+  directoryId: number;
+}
+
+export interface NoteListItemApiResponse {
+  id: number;
+  created_at: number;
+  title: string;
+  short_description: string;
+}
+
+export interface NoteListItem {
+  id: number;
+  createdAt: string;
+  title: string;
+  shortDescription: string;
+}

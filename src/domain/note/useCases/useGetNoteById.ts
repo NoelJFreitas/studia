@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { topicService } from "../topicService";
+import { topicService } from "../noteService";
 
 import { DefaultMutationOptions } from "@/types/mutation";
 import { Note } from "../types";

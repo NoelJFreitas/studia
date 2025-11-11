@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 
-import { topicService } from "../topicService";
+import { topicService } from "../noteService";
 import { CreateNoteApiResponse, CreateNoteByUrlParams } from "../types";
 import { DefaultMutationOptions } from "@/types/mutation";
 

@@ -3,6 +3,8 @@ import {
   CreateNoteByUrlParams,
   CreateNoteApiResponse,
   NoteApiResponse,
+  GetNotListApiParams,
+  NoteListItemApiResponse,
 } from "./types";
 
 async function getRecent(): Promise<NoteApiResponse[]> {
@@ -25,8 +27,18 @@ async function getNoteById(id: number): Promise<NoteApiResponse> {
   return response.data;
 }
 
-export const topicApi = {
+async function getNoteByDirectoryId(
+  params: GetNotListApiParams,
+): Promise<NoteListItemApiResponse[]> {
+  const response = await api.app.get<NoteListItemApiResponse[]>(`notes`, {
+    params,
+  });
+  return response.data;
+}
+
+export const noteApi = {
   getRecent,
   createByUrl,
   getNoteById,
+  getNoteByDirectoryId,
 };
