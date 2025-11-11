@@ -14,6 +14,7 @@ export function Header({ title, ...props }: HeaderProps) {
       flexDirection="row"
       justifyContent="space-between"
       alignItems="center"
+      columnGap="xl"
     >
       <PressableBox
         padding="sm"
@@ -23,7 +24,15 @@ export function Header({ title, ...props }: HeaderProps) {
       >
         <Icon name="arrowLeft" size={24} color="pureWhite" />
       </PressableBox>
-      <Text preset="headingMedium2" fontWeight="medium" color="jetBlack">
+      <Text
+        flex={1}
+        preset="headingMedium2"
+        fontWeight="medium"
+        color="jetBlack"
+        textAlign="right"
+        ellipsizeMode="tail"
+        numberOfLines={1}
+      >
         {title}
       </Text>
     </Box>

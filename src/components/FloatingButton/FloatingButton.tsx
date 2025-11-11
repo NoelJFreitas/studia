@@ -1,18 +1,29 @@
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Box } from "../Box/Box";
-import { Icon } from "../Icon/Icon";
+import { Box, BoxProps } from "../Box/Box";
 import { Pressable, PressableProps, ViewStyle } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  FadeIn,
+  LinearTransition,
 } from "react-native-reanimated";
+import { AwesomeIcon, AwesomeIconName } from "../AwesomeIcon/AwesomeIcon";
 
 interface Props extends PressableProps {
+  boxProps?: BoxProps;
+  icon?: AwesomeIconName;
   onPress: () => void;
 }
 
-export function FloatingButton({ onPress, ...props }: Props) {
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+export function FloatingButton({
+  onPress,
+  boxProps,
+  icon = "plus",
+  ...props
+}: Props) {
   const { bottom } = useSafeAreaInsets();
   const rotation = useSharedValue(0);
 
@@ -32,7 +43,12 @@ export function FloatingButton({ onPress, ...props }: Props) {
   };
 
   return (
-    <Pressable {...props} onPress={handlePress}>
+    <AnimatedPressable
+      entering={FadeIn}
+      layout={LinearTransition}
+      {...props}
+      onPress={handlePress}
+    >
       <Box
         height={56}
         width={56}
@@ -45,12 +61,13 @@ export function FloatingButton({ onPress, ...props }: Props) {
         position="absolute"
         bottom={bottom + 10}
         right={18}
+        {...boxProps}
       >
         <Animated.View style={animatedStyle}>
-          <Icon name="plus" color="pureWhite" />
+          <AwesomeIcon name={icon} size={20} color="pureWhite" />
         </Animated.View>
       </Box>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
