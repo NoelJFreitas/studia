@@ -50,7 +50,7 @@ function toTopic(raw: NoteApiResponse): Note {
 
 function toDirectoryList(raw: NoteListItemApiResponse[]): NoteListItem[] {
   return raw.map((item) => ({
-    createdAt: moment(item.created_at).format("DD/MM/YYYY"),
+    createdAt: moment(item.created_at).format("DD.MM.YYYY"),
     id: item.id,
     shortDescription: item.short_description,
     title: item.title,

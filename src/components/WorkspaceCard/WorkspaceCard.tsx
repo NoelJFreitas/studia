@@ -25,13 +25,12 @@ export function WorkspaceCard({ directory, ...props }: Props) {
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-
     elevation: 6,
   };
 
   function handleNavigateToWorkspace() {
     navigation.navigate("App", {
-      screen: "Workspace",
+      screen: "Directory",
       params: { id: directory.id, name: directory.name },
     });
   }

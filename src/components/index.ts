@@ -22,3 +22,4 @@ export * from "./CreateNoteByUrl/CreateNoteByUrl";
 export * from "./FullScreenLoadingModal/FullScreenLoadingModal";
 export * from "./AwesomeIcon/AwesomeIcon";
 export * from "./ToolBar/ToolBar";
+export * from "./ActivityIndicator/ActivityIndicator";

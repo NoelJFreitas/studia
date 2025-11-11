@@ -1,3 +1,3 @@
 export * from "./HomeScreen/HomeScreen";
-export * from "./WorkspaceScreen/WorkspaceScreen";
+export * from "./DirectoryScreen/DirectoryScreen";
 export * from "./NoteEditorScreen/NoteEditorScreen";

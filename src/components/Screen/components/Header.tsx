@@ -23,7 +23,7 @@ export function Header({ title, ...props }: HeaderProps) {
       >
         <Icon name="arrowLeft" size={24} color="pureWhite" />
       </PressableBox>
-      <Text preset="headingMedium2" fontWeight="medium">
+      <Text preset="headingMedium2" fontWeight="medium" color="jetBlack">
         {title}
       </Text>
     </Box>

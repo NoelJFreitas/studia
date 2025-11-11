@@ -1,11 +1,11 @@
-import { HomeScreen, NoteEditorScreen, WorkspaceScreen } from "@/screens";
+import { HomeScreen, NoteEditorScreen, DirectoryScreen } from "@/screens";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export type AppStackParamList = {
   Home: undefined;
   Editor: { id: number };
-  Workspace: { id: number; name: string };
+  Directory: { id: number; name: string };
   Loading: undefined;
 };
 
@@ -20,7 +20,7 @@ export function AppStack() {
     >
       <Screen name="Home" component={HomeScreen} />
       <Screen name="Editor" component={NoteEditorScreen} />
-      <Screen name="Workspace" component={WorkspaceScreen} />
+      <Screen name="Directory" component={DirectoryScreen} />
     </Navigator>
   );
 }
