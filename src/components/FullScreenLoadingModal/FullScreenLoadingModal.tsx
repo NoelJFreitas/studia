@@ -14,7 +14,7 @@ export function FullScreenLoadingModal() {
   if (!processingModal) return;
 
   return (
-    <Modal visible={!!processingModal} transparent>
+    <Modal visible={!!processingModal} transparent animationType="fade">
       <Box
         justifyContent="center"
         alignItems="center"
