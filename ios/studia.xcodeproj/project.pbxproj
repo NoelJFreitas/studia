@@ -11,6 +11,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		526FAD893238422CAE1D76A8 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AB874B663EC4291A13F59FD /* Poppins-Medium.ttf */; };
+		71544C04FAA646AB9E75AEA1 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E08E7C148B04B76B080C588 /* FontAwesome.ttf */; };
 		859BD7A06CA840BA90171B2C /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E41DF393E99454BB017D7BF /* Poppins-Light.ttf */; };
 		8FCDA8E42A8D1EC66FE7194D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5838043FE1D2CA7F7766108 /* ExpoModulesProvider.swift */; };
 		ABF1434A1F324957A09CCA84 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32BE753922FF47EDB7E8D7DE /* Poppins-Black.ttf */; };
@@ -19,7 +20,6 @@
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 		F7F4C1F496FD5DE2B6E004C4 /* libPods-studia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C0B2B28B691A6481B9CAB2 /* libPods-studia.a */; };
 		FD1C5908A06D4865905BB118 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF6EA2296BF4AE6AD758FF1 /* Poppins-Bold.ttf */; };
-		71544C04FAA646AB9E75AEA1 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E08E7C148B04B76B080C588 /* FontAwesome.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +29,7 @@
 		23511566462842528C8E857B /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		32BE753922FF47EDB7E8D7DE /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		3B95E8C8127CEBC3D4947840 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = studia/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3E08E7C148B04B76B080C588 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = ../src/assets/fonts/FontAwesome.ttf; sourceTree = "<group>"; };
 		4E41DF393E99454BB017D7BF /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		5AB874B663EC4291A13F59FD /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		85E49CE478F7C18F9D1A62CE /* Pods-studia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-studia.release.xcconfig"; path = "Target Support Files/Pods-studia/Pods-studia.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = studia/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* studia-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "studia-Bridging-Header.h"; path = "studia/studia-Bridging-Header.h"; sourceTree = "<group>"; };
-		3E08E7C148B04B76B080C588 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../src/assets/fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,11 +392,11 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.noelteixeira.studia;
-				PRODUCT_NAME = "studia";
+				PRODUCT_NAME = studia;
 				SWIFT_OBJC_BRIDGING_HEADER = "studia/studia-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -423,10 +423,10 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.noelteixeira.studia;
-				PRODUCT_NAME = "studia";
+				PRODUCT_NAME = studia;
 				SWIFT_OBJC_BRIDGING_HEADER = "studia/studia-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

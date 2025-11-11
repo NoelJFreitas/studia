@@ -9,13 +9,17 @@ import { CreateNoteApiResponse, useCreateNote } from "@/domain/note";
 import { useToastService } from "@/services/toast";
 import { useNavigation } from "@react-navigation/native";
 
+import { useBottomSheetService } from "@/services";
+
 interface Props {
   directoryId: number;
 }
 
 export function CreateNoteByUrl({ directoryId }: Props) {
+  const { hideBottomSheet } = useBottomSheetService();
+
   const { navigate } = useNavigation();
-  const { mutate } = useCreateNote({ onError, onSuccess });
+  const { mutate, isPending } = useCreateNote({ onError, onSuccess });
   const { showToast } = useToastService();
   const { showProcessingModal, hideProcessingModal } =
     useProcessingModalService();
@@ -31,6 +35,8 @@ export function CreateNoteByUrl({ directoryId }: Props) {
   }
 
   function onSuccess(params: CreateNoteApiResponse) {
+    hideBottomSheet();
+    hideProcessingModal();
     navigate("App", { screen: "Editor", params });
   }
 
@@ -65,6 +71,7 @@ export function CreateNoteByUrl({ directoryId }: Props) {
         title="Criar nota"
         alignSelf="center"
         disabled={!formState.isValid}
+        loading={isPending}
         onPress={handleSubmit(onSubmit)}
       />
     </Box>

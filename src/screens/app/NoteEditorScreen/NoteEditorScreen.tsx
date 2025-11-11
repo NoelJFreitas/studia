@@ -9,7 +9,6 @@ import {
 import { NativeSyntheticEvent, ScrollView, ViewStyle } from "react-native";
 import { DEFAULT_STYLE, htmlStyle } from "./constants";
 import { useGetNoteById } from "@/domain/note";
-import { useProcessingModalService } from "@/services/processingModal";
 
 export type StylesState = OnChangeStateEvent;
 
@@ -17,12 +16,8 @@ export function NoteEditorScreen({
   route,
   navigation,
 }: AppScreenProps<"Editor">) {
-  const { hideProcessingModal } = useProcessingModalService();
-
   const { data } = useGetNoteById({
     id: route.params.id,
-    onSuccess: () => hideProcessingModal(),
-    onError: () => navigation.goBack(),
   });
 
   const ref = useRef<EnrichedTextInputInstance>(null);
@@ -34,7 +29,7 @@ export function NoteEditorScreen({
 
   useEffect(() => {
     if (!data) return;
-    ref.current.setValue(data.content.trim());
+    ref.current.setValue(data.content);
   }, [data]);
 
   return (
