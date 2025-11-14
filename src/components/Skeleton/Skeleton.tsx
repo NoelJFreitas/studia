@@ -20,15 +20,12 @@ export function Skeleton({ ...props }: SkeletonProps) {
 }
 
 export function SkeletonView({ style, children, ...props }: Props) {
-  const { colors } = useAppTheme();
-
   return (
     <MotiView
       transition={{
         type: "timing",
       }}
       style={style}
-      animate={{ backgroundColor: colors.lightGray }}
       {...props}
     >
       {children}

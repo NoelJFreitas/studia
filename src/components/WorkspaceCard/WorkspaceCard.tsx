@@ -15,6 +15,8 @@ interface Props extends ViewProps {
 const width = Dimensions.get("screen").width;
 const AnimatedBox = Animated.createAnimatedComponent(PressableBox);
 
+export * from "./components/WorkspaceCardSkeleton";
+
 export function WorkspaceCard({ directory, ...props }: Props) {
   const navigation = useNavigation();
   const $shadowProps: ViewStyle = {
@@ -54,9 +56,14 @@ export function WorkspaceCard({ directory, ...props }: Props) {
   );
 }
 
-const $containerStyle: ViewStyle = {
+export const workspaceCardSizes = {
   width: width * 0.456,
   height: width * 0.456,
+};
+
+const $containerStyle: ViewStyle = {
+  width: workspaceCardSizes.width,
+  height: workspaceCardSizes.width,
   justifyContent: "center",
   paddingHorizontal: 20,
   overflow: "visible",
