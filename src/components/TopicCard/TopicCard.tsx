@@ -15,6 +15,13 @@ interface Props {
 
 const AnimatedBox = Animated.createAnimatedComponent(Box);
 
+export const MostRecentItemSizes = {
+  width: WIDTH * 0.7,
+  height: WIDTH * 0.4,
+};
+
+export * from "./components/TopicCardSkeleton";
+
 export function TopicCard({ topic }: Props) {
   return (
     <AnimatedBox
@@ -36,6 +43,6 @@ export function TopicCard({ topic }: Props) {
 }
 
 const $boxStyle: ViewStyle = {
-  width: WIDTH * 0.7,
-  height: WIDTH * 0.4,
+  width: MostRecentItemSizes.width,
+  height: MostRecentItemSizes.height,
 };

@@ -1,10 +1,12 @@
-import { Box, Text, TopicCard } from "@/components";
+import { Box, Text, TopicCard, TopicCardSkeleton } from "@/components";
 import { useGetRecentTopic } from "@/domain/note";
 import { LegendList } from "@legendapp/list";
 import { ViewStyle } from "react-native";
 
 export function MostRecent() {
-  const { data } = useGetRecentTopic();
+  const { data, isLoading } = useGetRecentTopic();
+
+  if (isLoading) return <TopicCardSkeleton />;
 
   return (
     <Box rowGap="xl">
