@@ -9,14 +9,12 @@ import {
 import { NativeSyntheticEvent, ScrollView, ViewStyle } from "react-native";
 import { DEFAULT_STYLE, htmlStyle } from "./constants";
 import { useGetNoteById } from "@/domain/note";
+import { NoteEditorSkeleton } from "./components/NoteEditorSkeleton";
 
 export type StylesState = OnChangeStateEvent;
 
-export function NoteEditorScreen({
-  route,
-  navigation,
-}: AppScreenProps<"Editor">) {
-  const { data } = useGetNoteById({
+export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
+  const { data, isLoading } = useGetNoteById({
     id: route.params.id,
   });
 
@@ -28,12 +26,14 @@ export function NoteEditorScreen({
   };
 
   useEffect(() => {
-    if (!data) return;
+    if (!data || isLoading) return;
     ref.current.setValue(data.content);
-  }, [data]);
+  }, [data, isLoading]);
+
+  if (isLoading) return <NoteEditorSkeleton />;
 
   return (
-    <Screen>
+    <Screen showHeader headerTitle={data?.title}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <EnrichedTextInput
           style={$richText}

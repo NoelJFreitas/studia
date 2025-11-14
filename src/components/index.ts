@@ -23,3 +23,4 @@ export * from "./FullScreenLoadingModal/FullScreenLoadingModal";
 export * from "./AwesomeIcon/AwesomeIcon";
 export * from "./ToolBar/ToolBar";
 export * from "./ActivityIndicator/ActivityIndicator";
+export * from "./Skeleton/Skeleton";
