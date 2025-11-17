@@ -34,7 +34,7 @@ export function TopicCard({ topic }: Props) {
     >
       <TagList tags={topic.tags} />
       <TopicTitleContainer title={topic.title} />
-      <Text numberOfLines={5}>{topic.shortDescription}</Text>
+      <Text numberOfLines={4}>{topic.shortDescription}</Text>
     </AnimatedBox>
   );
 }

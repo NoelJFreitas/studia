@@ -3,7 +3,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ViewStyle,
-  type ListRenderItemInfo,
 } from "react-native";
 import { ToolbarButton } from "./components/ToolBarButton";
 import type {
@@ -13,6 +12,7 @@ import type {
 import { Box } from "../Box/Box";
 import { $shadowProps } from "@/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { AwesomeIcon } from "../AwesomeIcon/AwesomeIcon";
 
 const STYLE_ITEMS = [
   {
@@ -81,6 +81,7 @@ export function Toolbar({ stylesState, editorRef }: ToolbarProps) {
     position: "absolute",
     bottom: bottom + 20,
     alignSelf: "center",
+    marginHorizontal: 20,
   };
 
   const handlePress = (item: Item) => {
@@ -158,18 +159,6 @@ export function Toolbar({ stylesState, editorRef }: ToolbarProps) {
     }
   };
 
-  const renderItem = ({ item }: ListRenderItemInfo<Item>) => {
-    return (
-      <ToolbarButton
-        {...item}
-        isActive={isActive(item)}
-        onPress={() => handlePress(item)}
-      />
-    );
-  };
-
-  const keyExtractor = (item: Item) => item.name;
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -177,17 +166,32 @@ export function Toolbar({ stylesState, editorRef }: ToolbarProps) {
     >
       <Box
         style={[$shadowProps]}
-        height={45}
+        height={50}
         borderRadius="md"
-        backgroundColor="primary"
+        backgroundColor="mediumGray"
       >
-        <Box flex={1} overflow="hidden" borderRadius="md">
+        <Box flex={1} overflow="hidden" borderRadius="md" flexDirection="row">
+          <Box
+            height={50}
+            width={60}
+            backgroundColor="jetBlack"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <AwesomeIcon name="save" color="pureWhite" size={20} />
+          </Box>
           <FlatList
             horizontal
             data={STYLE_ITEMS}
-            renderItem={renderItem}
+            renderItem={({ item }) => (
+              <ToolbarButton
+                {...item}
+                isActive={isActive(item)}
+                onPress={() => handlePress(item)}
+              />
+            )}
             showsHorizontalScrollIndicator={false}
-            keyExtractor={keyExtractor}
+            keyExtractor={(item: Item) => item.name}
           />
         </Box>
       </Box>

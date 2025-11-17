@@ -35,7 +35,7 @@ export function ToolbarButton({
       alignItems="center"
       width={56}
       height="100%"
-      backgroundColor={isActive ? "primary800" : "primary"}
+      backgroundColor={isActive ? "mediumGray" : "coolGray"}
       onPress={onPress}
     >
       {icon ? (

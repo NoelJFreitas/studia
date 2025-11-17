@@ -1,4 +1,3 @@
-import { Box, PressableBox, Tag, Text } from "@/components";
 import { Tag as TagType } from "@/domain/tag";
 import { useBottomSheetService } from "@/services";
 import Animated, {
@@ -6,36 +5,33 @@ import Animated, {
   LinearTransition,
 } from "react-native-reanimated";
 import { SelectTag } from "./components/SelectTag";
-import { useState } from "react";
+import { PressableBox } from "../Box/Box";
+import { Tag } from "../Tag/Tag";
 
 interface Props {
   tags: TagType[];
   onSelectTags: (tags: TagType[]) => void;
 }
 
-export function TagList({ tags }: Props) {
-  const [teste, setTest] = useState(tags);
+export function TagList({ tags, onSelectTags }: Props) {
   const { showBottomSheet } = useBottomSheetService();
 
   function onPressEditTag() {
     showBottomSheet({
-      element: <SelectTag currentTags={tags} onPress={setTest} />,
+      element: <SelectTag currentTags={tags} onPress={onSelectTags} />,
       title: "Editar Tags",
     });
   }
 
   return (
-    <Box marginBottom="md" flexDirection="row" columnGap="sm">
-      <PressableBox
-        onPress={onPressEditTag}
-        paddingHorizontal="md"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Text color="mediumGray">Editar Tags</Text>
-      </PressableBox>
+    <PressableBox
+      marginBottom="md"
+      flexDirection="row"
+      columnGap="sm"
+      onPress={onPressEditTag}
+    >
       <Animated.FlatList
-        data={teste}
+        data={tags}
         horizontal
         showsHorizontalScrollIndicator={false}
         layout={LinearTransition}
@@ -43,6 +39,6 @@ export function TagList({ tags }: Props) {
         contentContainerStyle={{ columnGap: 5 }}
         renderItem={({ item }) => <Tag text={item.title} color={item.color} />}
       />
-    </Box>
+    </PressableBox>
   );
 }

@@ -10,10 +10,12 @@ import { NativeSyntheticEvent, ScrollView, ViewStyle } from "react-native";
 import { DEFAULT_STYLE, htmlStyle } from "./constants";
 import { useGetNoteById } from "@/domain/note";
 import { NoteEditorSkeleton } from "./components/NoteEditorSkeleton";
+import { Tag } from "@/domain/tag";
 
 export type StylesState = OnChangeStateEvent;
 
 export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
+  const [tags, setTags] = useState<Tag[]>();
   const { data, isLoading } = useGetNoteById({
     id: route.params.id,
   });
@@ -28,14 +30,15 @@ export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
   useEffect(() => {
     if (!data || isLoading) return;
     ref.current.setValue(data.content);
+    setTags(data.tags);
   }, [data, isLoading]);
 
   if (isLoading) return <NoteEditorSkeleton />;
 
   return (
     <Screen showHeader headerTitle={data?.title}>
-      <TagList tags={data.tags} />
       <ScrollView showsVerticalScrollIndicator={false}>
+        <TagList tags={tags} onSelectTags={setTags} />
         <EnrichedTextInput
           style={$richText}
           ref={ref}
