@@ -1,11 +1,20 @@
 import { Box } from "@/components/Box/Box";
 import { Text } from "@/components/Text/Text";
 
-export function TopicTitleContainer() {
+interface Props {
+  title: string;
+}
+
+export function TopicTitleContainer({ title }: Props) {
   return (
     <Box flexDirection="row" justifyContent="space-between" alignItems="center">
-      <Text fontWeight="medium" color="jetBlack">
-        Design Thinking
+      <Text
+        fontWeight="medium"
+        color="jetBlack"
+        numberOfLines={1}
+        flexShrink={1}
+      >
+        {title}
       </Text>
       <Text
         fontWeight="light"

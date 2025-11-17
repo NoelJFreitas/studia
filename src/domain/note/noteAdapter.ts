@@ -36,6 +36,7 @@ function toTopics(raw: NoteApiResponse[]): Note[] {
     createdAt: formatRelativeTime(item.created_at),
     tags: item.tags.map((item) => item[0]),
     title: item.title,
+    shortDescription: item.short_description,
   }));
 }
 
@@ -45,6 +46,7 @@ function toTopic(raw: NoteApiResponse): Note {
     createdAt: formatRelativeTime(raw.created_at),
     tags: raw.tags.map((item) => item[0]),
     title: raw.title,
+    shortDescription: raw.short_description,
   };
 }
 

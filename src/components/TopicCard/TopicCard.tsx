@@ -33,11 +33,8 @@ export function TopicCard({ topic }: Props) {
       entering={FadeInUp.duration(600)}
     >
       <TagList tags={topic.tags} />
-      <TopicTitleContainer />
-      <Text>
-        Componentes atômicos são utilizados em design systems de alto padrão
-        para serem escalá....
-      </Text>
+      <TopicTitleContainer title={topic.title} />
+      <Text numberOfLines={5}>{topic.shortDescription}</Text>
     </AnimatedBox>
   );
 }

@@ -4,6 +4,7 @@ export interface NoteApiResponse {
   created_at: number;
   title: string;
   content: string;
+  short_description: string;
   tags: Tag[][];
 }
 
@@ -11,6 +12,7 @@ export interface Note {
   createdAt: string;
   title: string;
   content: string;
+  shortDescription: string;
   tags: Tag[];
 }
 

@@ -17,7 +17,7 @@ export function DropdownMenu() {
   }
 
   return (
-    <Modal transparent animationType="slide" visible={!!menuOptions}>
+    <Modal transparent animationType="fade" visible={!!menuOptions}>
       <TouchableWithoutFeedback onPress={handleOnCloseMenu}>
         <Box flex={1} style={$overlay}>
           <Box position="absolute" bottom={130} right={18} rowGap="lg">
@@ -37,5 +37,5 @@ export function DropdownMenu() {
 }
 
 const $overlay = {
-  backgroundColor: "#0000002d",
+  backgroundColor: "#0000006e",
 };
