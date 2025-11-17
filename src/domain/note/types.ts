@@ -20,7 +20,6 @@ export interface CreateNoteApiResponse {
 
 export interface CreateNoteByUrlParams {
   url: string;
-  title: string;
   directoryId: number;
 }
 

@@ -1,9 +1,4 @@
-import {
-  CreateNoteByUrl,
-  FloatingButton,
-  Screen,
-  ActivityIndicator,
-} from "@/components";
+import { CreateNoteByUrl, FloatingButton, Screen } from "@/components";
 
 import { AppScreenProps } from "@/routes";
 import { WorkspaceList } from "./components/WorkspaceList";
@@ -15,13 +10,9 @@ import { bottomSheetStore } from "@/services";
 import { useGetByDirectory } from "@/domain/note/useCases/useGetByDirectory";
 import {} from "react-native";
 import { WorkspaceEmpty } from "./components/WorkspaceEmpty";
+import { DirectoryScreenSkeleton } from "./components/DirectoryScreenSkeleton";
 
-// const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-export function DirectoryScreen({
-  route,
-  navigation,
-}: AppScreenProps<"Directory">) {
+export function DirectoryScreen({ route }: AppScreenProps<"Directory">) {
   const { name } = route.params;
   const { data, isLoading } = useGetByDirectory({
     directoryId: route.params.id,
@@ -53,19 +44,14 @@ export function DirectoryScreen({
     },
   ];
 
+  if (isLoading) return <DirectoryScreenSkeleton />;
+
   return (
     <Screen
       showHeader
       headerTitle={name}
       BottomComponent={<FloatingButton onPress={handleOnPressFloatingButton} />}
     >
-      {isLoading && (
-        <ActivityIndicator
-          flex={1}
-          justifyContent="center"
-          alignItems="center"
-        />
-      )}
       {data?.length > 0 && <WorkspaceList data={data} />}
       {data?.length === 0 && !isLoading && (
         <WorkspaceEmpty

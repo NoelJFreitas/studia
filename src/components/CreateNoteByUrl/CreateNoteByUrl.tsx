@@ -51,15 +51,6 @@ export function CreateNoteByUrl({ directoryId }: Props) {
     <Box paddingVertical="md" rowGap="lg">
       <FormTextInput
         control={control}
-        name="title"
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType="url"
-        placeholder="Insira o titulo"
-        label="Insira o titulo"
-      />
-      <FormTextInput
-        control={control}
         name="url"
         autoCapitalize="none"
         autoCorrect={false}
