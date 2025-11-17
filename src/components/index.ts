@@ -24,3 +24,4 @@ export * from "./AwesomeIcon/AwesomeIcon";
 export * from "./ToolBar/ToolBar";
 export * from "./ActivityIndicator/ActivityIndicator";
 export * from "./Skeleton/Skeleton";
+export * from "./TagList/TagList";

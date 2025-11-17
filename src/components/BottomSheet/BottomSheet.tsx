@@ -27,7 +27,7 @@ export function BottomSheet() {
     }
   }, [bottomSheetContent, bottomSheetModalRef]);
 
-  if (!bottomSheetContent) return;
+  // if (!bottomSheetContent) return;
 
   return (
     <BottomSheetModalProvider>

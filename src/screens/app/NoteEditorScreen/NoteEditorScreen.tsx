@@ -1,4 +1,4 @@
-import { Screen, Toolbar } from "@/components";
+import { Screen, TagList, Toolbar } from "@/components";
 import { AppScreenProps } from "@/routes";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -34,6 +34,7 @@ export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
 
   return (
     <Screen showHeader headerTitle={data?.title}>
+      <TagList tags={data.tags} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <EnrichedTextInput
           style={$richText}
