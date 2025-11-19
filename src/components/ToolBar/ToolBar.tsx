@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   FlatList,
   KeyboardAvoidingView,
   Platform,
@@ -9,7 +10,7 @@ import type {
   OnChangeStateEvent,
   EnrichedTextInputInstance,
 } from "react-native-enriched";
-import { Box } from "../Box/Box";
+import { Box, PressableBox } from "../Box/Box";
 import { $shadowProps } from "@/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AwesomeIcon } from "../AwesomeIcon/AwesomeIcon";
@@ -71,10 +72,17 @@ type StylesState = OnChangeStateEvent;
 
 export interface ToolbarProps {
   stylesState: StylesState;
+  onPressSave: () => void;
+  saveLoading: boolean;
   editorRef?: React.RefObject<EnrichedTextInputInstance | null>;
 }
 
-export function Toolbar({ stylesState, editorRef }: ToolbarProps) {
+export function Toolbar({
+  stylesState,
+  editorRef,
+  onPressSave,
+  saveLoading,
+}: ToolbarProps) {
   const { bottom } = useSafeAreaInsets();
 
   const $tollBarStyle: ViewStyle = {
@@ -171,15 +179,20 @@ export function Toolbar({ stylesState, editorRef }: ToolbarProps) {
         backgroundColor="mediumGray"
       >
         <Box flex={1} overflow="hidden" borderRadius="md" flexDirection="row">
-          <Box
+          <PressableBox
             height={50}
+            onPress={onPressSave}
             width={60}
             backgroundColor="jetBlack"
             justifyContent="center"
             alignItems="center"
           >
-            <AwesomeIcon name="save" color="pureWhite" size={20} />
-          </Box>
+            {saveLoading ? (
+              <ActivityIndicator size={"small"} />
+            ) : (
+              <AwesomeIcon name="save" color="pureWhite" size={20} />
+            )}
+          </PressableBox>
           <FlatList
             horizontal
             data={STYLE_ITEMS}

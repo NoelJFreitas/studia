@@ -6,6 +6,7 @@ import {
   Note,
   GetNotListApiParams,
   NoteListItem,
+  NoteListItemApiUpdate,
 } from "./types";
 
 async function getRecent(): Promise<Note[]> {
@@ -47,9 +48,18 @@ async function getNoteByDirectoryId(
   }
 }
 
+async function updateNoteById(note: NoteListItemApiUpdate): Promise<void> {
+  try {
+    await noteApi.updateNoteById(note);
+  } catch {
+    throw new Error("Falha ao atualizar nota");
+  }
+}
+
 export const topicService = {
   getRecent,
   createByUrl,
   getNoteById,
   getNoteByDirectoryId,
+  updateNoteById,
 };

@@ -1,6 +1,6 @@
 import { Box } from "@/components/Box/Box";
 import { Tag } from "@/components/Tag/Tag";
-import { Tag as TagType } from "@/domain/note";
+import { Tag as TagType } from "@/domain/tag";
 import { FlatList } from "react-native";
 
 interface Props {

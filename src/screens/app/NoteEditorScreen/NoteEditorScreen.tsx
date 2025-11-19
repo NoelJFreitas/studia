@@ -8,16 +8,28 @@ import {
 } from "react-native-enriched";
 import { NativeSyntheticEvent, ScrollView, ViewStyle } from "react-native";
 import { DEFAULT_STYLE, htmlStyle } from "./constants";
-import { useGetNoteById } from "@/domain/note";
+import { useGetNoteById, useUpdateNote } from "@/domain/note";
 import { NoteEditorSkeleton } from "./components/NoteEditorSkeleton";
 import { Tag } from "@/domain/tag";
+import { useToastService } from "@/services/toast";
 
 export type StylesState = OnChangeStateEvent;
 
 export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
   const [tags, setTags] = useState<Tag[]>();
+  const [content, setContent] = useState<string>();
+
+  const { showToast } = useToastService();
+
   const { data, isLoading } = useGetNoteById({
     id: route.params.id,
+  });
+
+  const { mutate, isPending } = useUpdateNote({
+    onError: () =>
+      showToast({ type: "error", message: "Falha ao salvar nota" }),
+    onSuccess: () =>
+      showToast({ type: "success", message: "Nota salva com sucesso!" }),
   });
 
   const ref = useRef<EnrichedTextInputInstance>(null);
@@ -25,6 +37,14 @@ export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
 
   const handleChangeState = (e: NativeSyntheticEvent<OnChangeStateEvent>) => {
     setStylesState(e.nativeEvent);
+  };
+
+  const handleOnPressSave = () => {
+    mutate({
+      content: content,
+      notes_id: route.params.id,
+      tags: tags.map(({ id }) => id),
+    });
   };
 
   useEffect(() => {
@@ -42,11 +62,17 @@ export function NoteEditorScreen({ route }: AppScreenProps<"Editor">) {
         <EnrichedTextInput
           style={$richText}
           ref={ref}
+          onChangeHtml={(e) => setContent(e.nativeEvent.value)}
           htmlStyle={htmlStyle}
           onChangeState={handleChangeState}
         />
       </ScrollView>
-      <Toolbar stylesState={stylesState} editorRef={ref} />
+      <Toolbar
+        saveLoading={isPending}
+        stylesState={stylesState}
+        editorRef={ref}
+        onPressSave={handleOnPressSave}
+      />
     </Screen>
   );
 }

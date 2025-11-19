@@ -3,6 +3,7 @@ import {
   NoteApiResponse,
   NoteListItem,
   NoteListItemApiResponse,
+  NoteListItemApiUpdate,
 } from "./types";
 import moment from "moment";
 
@@ -37,6 +38,7 @@ function toTopics(raw: NoteApiResponse[]): Note[] {
     tags: item.tags.map((item) => item[0]),
     title: item.title,
     shortDescription: item.short_description,
+    id: item.id,
   }));
 }
 
@@ -47,6 +49,7 @@ function toTopic(raw: NoteApiResponse): Note {
     tags: raw.tags.map((item) => item[0]),
     title: raw.title,
     shortDescription: raw.short_description,
+    id: raw.id,
   };
 }
 
@@ -59,4 +62,17 @@ function toDirectoryList(raw: NoteListItemApiResponse[]): NoteListItem[] {
   }));
 }
 
-export const topicAdapter = { toTopics, toTopic, toDirectoryList };
+function toTopicUpdate(raw: Note): NoteListItemApiUpdate {
+  return {
+    content: raw.content,
+    notes_id: raw.id,
+    tags: raw.tags.map((item) => item.id),
+  };
+}
+
+export const topicAdapter = {
+  toTopics,
+  toTopic,
+  toDirectoryList,
+  toTopicUpdate,
+};

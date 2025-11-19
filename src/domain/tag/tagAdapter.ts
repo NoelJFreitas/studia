@@ -10,7 +10,7 @@ function toTag(raw: TagApiResponse[]): Tag[] {
   return raw.map((item) => ({
     color: item.color,
     title: item.title,
-    id: item.id.toString(),
+    id: item.id,
   }));
 }
 

@@ -11,5 +11,5 @@ export type TagApiParams = Pick<TagApiResponse, "title"> & {
 export interface Tag {
   title: string;
   color: string;
-  id: string;
+  id: number;
 }

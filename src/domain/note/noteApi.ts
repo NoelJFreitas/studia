@@ -5,6 +5,7 @@ import {
   NoteApiResponse,
   GetNotListApiParams,
   NoteListItemApiResponse,
+  NoteListItemApiUpdate,
 } from "./types";
 
 async function getRecent(): Promise<NoteApiResponse[]> {
@@ -36,9 +37,17 @@ async function getNoteByDirectoryId(
   return response.data;
 }
 
+async function updateNoteById(params: NoteListItemApiUpdate): Promise<void> {
+  await api.app.patch<NoteListItemApiResponse[]>(
+    `notes/${params.notes_id}`,
+    params,
+  );
+}
+
 export const noteApi = {
   getRecent,
   createByUrl,
   getNoteById,
   getNoteByDirectoryId,
+  updateNoteById,
 };

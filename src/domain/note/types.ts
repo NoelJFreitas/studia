@@ -6,6 +6,7 @@ export interface NoteApiResponse {
   content: string;
   short_description: string;
   tags: Tag[][];
+  id: number;
 }
 
 export interface Note {
@@ -14,6 +15,7 @@ export interface Note {
   content: string;
   shortDescription: string;
   tags: Tag[];
+  id: number;
 }
 
 export interface CreateNoteApiResponse {
@@ -43,4 +45,10 @@ export interface NoteListItem {
   createdAt: string;
   title: string;
   shortDescription: string;
+}
+
+export interface NoteListItemApiUpdate {
+  notes_id: number;
+  content: string;
+  tags: number[];
 }
