@@ -6,6 +6,7 @@ import {
   GetNotListApiParams,
   NoteListItemApiResponse,
   NoteListItemApiUpdate,
+  CreateNoteByImageParams,
 } from "./types";
 
 async function getRecent(): Promise<NoteApiResponse[]> {
@@ -44,10 +45,31 @@ async function updateNoteById(params: NoteListItemApiUpdate): Promise<void> {
   );
 }
 
+async function createByImage({
+  image,
+  directoryId,
+}: CreateNoteByImageParams): Promise<CreateNoteApiResponse> {
+  const form = new FormData();
+  form.append("file", {
+    uri: image.uri,
+    name: image.fileName,
+    type: "image/jpeg",
+  } as any);
+
+  const htmlText = await api.n8n.post<string>("resume-by-image", form);
+  const response = await api.app.post<CreateNoteApiResponse>("notes/image", {
+    directoryId,
+    htmlText: htmlText.data,
+  });
+
+  return response.data;
+}
+
 export const noteApi = {
   getRecent,
   createByUrl,
   getNoteById,
   getNoteByDirectoryId,
   updateNoteById,
+  createByImage,
 };

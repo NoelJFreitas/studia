@@ -1,3 +1,4 @@
+import { ImagePickerAsset } from "expo-image-picker";
 import { Tag } from "../tag";
 
 export interface NoteApiResponse {
@@ -24,6 +25,11 @@ export interface CreateNoteApiResponse {
 
 export interface CreateNoteByUrlParams {
   url: string;
+  directoryId: number;
+}
+
+export interface CreateNoteByImageParams {
+  image: ImagePickerAsset;
   directoryId: number;
 }
 

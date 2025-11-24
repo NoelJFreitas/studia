@@ -25,3 +25,4 @@ export * from "./ToolBar/ToolBar";
 export * from "./ActivityIndicator/ActivityIndicator";
 export * from "./Skeleton/Skeleton";
 export * from "./TagList/TagList";
+export * from "./CreateNoteByImage/CreateNoteByImage";

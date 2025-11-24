@@ -1,18 +1,19 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { topicService } from "../noteService";
-import { CreateNoteApiResponse, CreateNoteByUrlParams } from "../types";
+import { CreateNoteApiResponse, CreateNoteByImageParams } from "../types";
 import { DefaultMutationOptions } from "@/types/mutation";
 
-export function useCreateNote(
+export function useCreateNoteByImage(
   options?: DefaultMutationOptions<CreateNoteApiResponse>,
 ) {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationKey: ["create-note"],
-    mutationFn: (params: CreateNoteByUrlParams) =>
-      topicService.createByUrl(params),
+    mutationKey: ["create-note-by-image"],
+
+    mutationFn: (params: CreateNoteByImageParams) =>
+      topicService.createByImage(params),
     onError: options?.onError,
     onSuccess: (data, params) => {
       options?.onSuccess?.(data);
@@ -21,6 +22,9 @@ export function useCreateNote(
       });
       queryClient.invalidateQueries({
         queryKey: ["recent-topic"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["directories"],
       });
     },
   });

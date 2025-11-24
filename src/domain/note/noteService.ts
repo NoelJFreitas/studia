@@ -7,6 +7,7 @@ import {
   GetNotListApiParams,
   NoteListItem,
   NoteListItemApiUpdate,
+  CreateNoteByImageParams,
 } from "./types";
 
 async function getRecent(): Promise<Note[]> {
@@ -26,6 +27,16 @@ async function createByUrl(
   } catch {
     throw new Error("Falha ao criar nota");
   }
+}
+
+async function createByImage(
+  params: CreateNoteByImageParams,
+): Promise<CreateNoteApiResponse> {
+  // try {
+  return await noteApi.createByImage(params);
+  // } catch {
+  // throw new Error("Falha ao criar nota");
+  // }
 }
 
 async function getNoteById(id: number): Promise<Note> {
@@ -62,4 +73,5 @@ export const topicService = {
   getNoteById,
   getNoteByDirectoryId,
   updateNoteById,
+  createByImage,
 };

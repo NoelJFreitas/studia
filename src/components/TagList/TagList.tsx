@@ -7,6 +7,7 @@ import Animated, {
 import { SelectTag } from "./components/SelectTag";
 import { PressableBox } from "../Box/Box";
 import { Tag } from "../Tag/Tag";
+import { Text } from "../Text/Text";
 
 interface Props {
   tags: TagType[];
@@ -30,6 +31,7 @@ export function TagList({ tags, onSelectTags }: Props) {
       columnGap="sm"
       onPress={onPressEditTag}
     >
+      {tags?.length === 0 && <Text color="mediumGray">Adicionar Tag</Text>}
       <Animated.FlatList
         data={tags}
         horizontal

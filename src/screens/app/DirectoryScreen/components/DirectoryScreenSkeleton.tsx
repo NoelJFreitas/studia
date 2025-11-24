@@ -15,11 +15,7 @@ export function DirectoryScreenSkeleton() {
 
   return (
     <SkeletonView style={[$style, { paddingTop: top }]}>
-      <Box
-        flexDirection="row"
-        justifyContent="space-between"
-        onLayout={(e) => console.log(e.nativeEvent.layout.height)}
-      >
+      <Box flexDirection="row" justifyContent="space-between">
         <Skeleton colorMode={"light"} height={50} width={50} radius="round" />
         <Skeleton colorMode={"light"} height={40} width={150} radius="round" />
       </Box>

@@ -5,7 +5,7 @@ import { Box } from "../Box/Box";
 import { FormTextInput } from "../FormTextInput/FormTextInput";
 import { Button } from "../Button/Button";
 import { useProcessingModalService } from "@/services/processingModal";
-import { CreateNoteApiResponse, useCreateNote } from "@/domain/note";
+import { CreateNoteApiResponse, useCreateNoteByUrl } from "@/domain/note";
 import { useToastService } from "@/services/toast";
 import { useNavigation } from "@react-navigation/native";
 
@@ -19,7 +19,7 @@ export function CreateNoteByUrl({ directoryId }: Props) {
   const { hideBottomSheet } = useBottomSheetService();
 
   const { navigate } = useNavigation();
-  const { mutate, isPending } = useCreateNote({ onError, onSuccess });
+  const { mutate, isPending } = useCreateNoteByUrl({ onError, onSuccess });
   const { showToast } = useToastService();
   const { showProcessingModal, hideProcessingModal } =
     useProcessingModalService();

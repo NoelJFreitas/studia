@@ -1,4 +1,9 @@
-import { CreateNoteByUrl, FloatingButton, Screen } from "@/components";
+import {
+  CreateNoteByImage,
+  CreateNoteByUrl,
+  FloatingButton,
+  Screen,
+} from "@/components";
 
 import { AppScreenProps } from "@/routes";
 import { WorkspaceList } from "./components/WorkspaceList";
@@ -28,7 +33,14 @@ export function DirectoryScreen({ route }: AppScreenProps<"Directory">) {
     {
       icon: "camera",
       title: "Criar anotação a partir de foto",
-      onPress: () => console.log("navega para camera"),
+      onPress: () => {
+        bottomSheetStore.setState({
+          bottomSheet: {
+            element: <CreateNoteByImage directoryId={route.params.id} />,
+            title: "Criar a partir de imagem! 📸",
+          },
+        });
+      },
     },
     {
       icon: "url",

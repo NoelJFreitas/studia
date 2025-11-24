@@ -8,7 +8,12 @@ export const app = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL,
 });
 
+export const n8n = axios.create({
+  baseURL: process.env.EXPO_PUBLIC_N8N_API,
+});
+
 export const api = {
   auth,
   app,
+  n8n,
 };
