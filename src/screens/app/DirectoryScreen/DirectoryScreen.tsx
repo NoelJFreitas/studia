@@ -17,7 +17,10 @@ import {} from "react-native";
 import { WorkspaceEmpty } from "./components/WorkspaceEmpty";
 import { DirectoryScreenSkeleton } from "./components/DirectoryScreenSkeleton";
 
-export function DirectoryScreen({ route }: AppScreenProps<"Directory">) {
+export function DirectoryScreen({
+  route,
+  navigation,
+}: AppScreenProps<"Directory">) {
   const { name } = route.params;
   const { data, isLoading } = useGetByDirectory({
     directoryId: route.params.id,
@@ -53,6 +56,11 @@ export function DirectoryScreen({ route }: AppScreenProps<"Directory">) {
           },
         });
       },
+    },
+    {
+      icon: "papers",
+      title: "Questionário",
+      onPress: () => navigation.navigate("App", { screen: "Questionary" }),
     },
   ];
 

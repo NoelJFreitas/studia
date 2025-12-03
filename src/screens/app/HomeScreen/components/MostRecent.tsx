@@ -21,6 +21,7 @@ export function MostRecent() {
               Os cards recentes aparecerão aqui
             </Text>
           )}
+          keyExtractor={(item) => item.id.toString()}
           style={$listStyle}
           showsHorizontalScrollIndicator={false}
           ItemSeparatorComponent={() => <Box mr="sm" />}

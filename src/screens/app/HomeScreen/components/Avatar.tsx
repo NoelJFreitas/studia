@@ -21,5 +21,4 @@ export function Avatar({ source }: Props) {
 
 const $imageStyle: ImageStyle = {
   flex: 1,
-  backgroundColor: "red",
 };

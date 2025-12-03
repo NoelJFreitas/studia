@@ -12,8 +12,13 @@ export const n8n = axios.create({
   baseURL: process.env.EXPO_PUBLIC_N8N_API,
 });
 
+export const questions = axios.create({
+  baseURL: process.env.EXPO_PUBLIC_QUESTIONS_API,
+});
+
 export const api = {
   auth,
   app,
   n8n,
+  questions,
 };

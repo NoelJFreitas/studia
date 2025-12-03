@@ -20,6 +20,7 @@ import {
   Toast,
 } from "@/components";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { QuestionnaireScreen } from "@/screens/app/QuestionnaireScreen/QuestionScreen";
 
 export default function App() {
   const [fontsLoaded, error] = useFonts(APP_FONTS);

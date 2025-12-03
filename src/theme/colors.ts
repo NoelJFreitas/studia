@@ -5,6 +5,7 @@ export const palette = {
   almostBlack: "#333333",
   pureWhite: "#FFFFFF",
   forestGreen: "#1B965C",
+  forestGreenLight: "#1B965C20",
   brightPink: "#E240E5",
   deepIndigo: "#292150",
   offWhite: "#FBFBFB",

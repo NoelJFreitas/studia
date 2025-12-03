@@ -1,11 +1,12 @@
 import { Dimensions, ViewStyle } from "react-native";
-import { Box } from "../Box/Box";
+import { PressableBox } from "../Box/Box";
 import { Text } from "../Text/Text";
 import { $shadowProps } from "@/theme";
 import { TopicTitleContainer } from "./components/TopicTitleContainer";
 import TagList from "./components/TagList";
 import { Note } from "@/domain/note";
 import Animated, { FadeInUp } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
 
 const WIDTH = Dimensions.get("screen").width;
 
@@ -13,7 +14,7 @@ interface Props {
   topic: Note;
 }
 
-const AnimatedBox = Animated.createAnimatedComponent(Box);
+const AnimatedBox = Animated.createAnimatedComponent(PressableBox);
 
 export const MostRecentItemSizes = {
   width: WIDTH * 0.7,
@@ -23,8 +24,12 @@ export const MostRecentItemSizes = {
 export * from "./components/TopicCardSkeleton";
 
 export function TopicCard({ topic }: Props) {
+  const { navigate } = useNavigation();
   return (
     <AnimatedBox
+      onPress={() =>
+        navigate("App", { screen: "Editor", params: { id: topic.id } })
+      }
       style={[$boxStyle, $shadowProps]}
       backgroundColor="pureWhite"
       borderRadius="md"
