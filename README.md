@@ -44,12 +44,12 @@ Utilizamos como backend o serviço do Xano para otimizar tempo, juntamente com u
 
 Exemplo:
 
-![Tela de Onboarding](./brand/image_1.png)
-![Tela de Login](./brand/image_3.png)
-![Tela Principal](./brand/image_5.png)
-![Modal para criar diretório](./brand/image_6.png)
-![Modal para criar tags](./brand/image_7.png)
-![Tela do diretório criado](./brand/image_8.png)
-![Loading ao criar nota](./brand/image_9.png)
-![Nota gerada por IA](./brand/image_10.png)
-![Tela do diretório com notas](./brand/image_11.png)
+<img src="./brand/image_1.png" alt="Tela de Onboarding" width="300" />
+<img src="./brand/image_3.png" alt="Tela de Login" width="300" />
+<img src="./brand/image_5.png" alt="Tela Principal" width="300" />
+<img src="./brand/image_6.png" alt="Modal para criar diretório" width="300" />
+<img src="./brand/image_7.png" alt="Modal para criar tags" width="300" />
+<img src="./brand/image_8.png" alt="Tela do diretório criado" width="300" />
+<img src="./brand/image_9.png" alt="Loading ao criar nota" width="300" />
+<img src="./brand/image_10.png" alt="Nota gerada por IA" width="300" />
+<img src="./brand/image_11.png" alt="Tela do diretório com notas" width="300" />
